@@ -42,13 +42,41 @@ h2{font-size:clamp(1.35rem,3vw,1.95rem)}h3{font-size:1.06rem;margin-bottom:.35em
 p{margin:0 0 1em}.muted{color:var(--muted2)}.small{font-size:.9rem}
 .label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
 header{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,15,20,.85);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
-.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+/* Kopfzeile: eine Reihe auf dem Desktop, zwei Reihen auf dem Handy.
+   Wichtig: KEINE feste Höhe — sonst wird die zweite Reihe abgeschnitten. */
+.nav{display:flex;align-items:center;gap:14px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto;order:1}
 .brand img.crest{width:28px;height:28px}.brand img.wm{height:19px;width:auto}
-.nav nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.nav nav a{color:var(--muted2);font-size:.93rem}
-.nav nav a:hover,.nav nav a[aria-current]{color:var(--tx);text-decoration:none}
-@media(max-width:900px){.hide-s{display:none}}
+.navlinks{display:flex;gap:20px;align-items:center;order:2;margin-left:auto}
+.navlinks a{color:var(--muted2);font-size:.93rem;white-space:nowrap}
+.navlinks a:hover,.navlinks a[aria-current]{color:var(--tx);text-decoration:none}
+.nav>.langs{order:3}
+.nav>.btn{order:4}
+@media(max-width:900px){
+  /* nur oben/unten — .nav ist zugleich .wrap und braucht dessen Seitenabstand */
+  .nav{padding-top:9px;padding-bottom:9px;min-height:0;row-gap:8px}
+  .nav>.langs{order:2;margin-left:auto}
+  .nav>.btn{order:3}
+  /* Die Menüpunkte bekommen eine eigene, waagerecht scrollbare Reihe —
+     so bleiben sie auf jedem Gerät erreichbar, statt ausgeblendet zu werden. */
+  .navlinks{order:5;width:100%;margin-left:0;justify-content:center;gap:22px;
+            overflow-x:auto;-webkit-overflow-scrolling:touch;
+            scrollbar-width:none;padding-bottom:2px}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{font-size:.95rem;padding:2px 0}
+  .navlinks a[aria-current]{border-bottom:2px solid var(--gold-border-mid)}
+}
+@media(max-width:480px){
+  /* Schmales Handy: Reihe 1 Logo + Sprachen + App-Button, Reihe 2 das Menü über
+     die volle Breite. Alles wird kompakter, damit Reihe 1 nicht umbricht und das
+     Menü ohne Wischen vollständig sichtbar bleibt. */
+  .brand img.wm{display:none}
+  .nav{gap:8px}
+  .nav>.langs{gap:3px}
+  .langs a{font-size:.7rem;padding:3px 4px}
+  .btn-sm>span{min-height:38px;padding:0 12px;font-size:.85rem}
+  .navlinks{gap:18px}
+}
 /* ── App-Button: schwarzer Korpus, metallischer Goldring (GoldGradientButton) ── */
 .btn{display:inline-block;padding:2px;border-radius:14px;
 background:linear-gradient(135deg,#FAD868 0%,#E0A836 25%,#85500C 50%,#C9922C 75%,#F3C450 100%);
@@ -153,14 +181,15 @@ footer a{color:var(--muted2)}
 </head>
 <body><header><div class="wrap nav">
 <a class="brand" href="/"><img class="crest" src="/crest.png" alt="MoatLens" width="28" height="28"><img class="wm" src="/wordmark.png" alt="MoatLens"></a>
-<nav>
-<a href="/index.html" class="hide-s">Start</a>
-<a href="/lexikon.html" class="hide-s" aria-current="page">Lexikon</a>
-<a href="/anleitung.html" class="hide-s">Anleitung</a>
-<a href="/magazin.html" class="hide-s">Magazin</a>
+<nav class="navlinks">
+<a href="/index.html">Start</a>
+<a href="/lexikon.html" aria-current="page">Lexikon</a>
+<a href="/anleitung.html">Anleitung</a>
+<a href="/magazin.html">Magazin</a>
+</nav>
 <span class="langs"><a class="on" href="/lexikon.html" hreflang="de" title="Deutsch">de</a><a class="" href="/en/lexikon.html" hreflang="en" title="English">en</a><a class="" href="/fr/lexikon.html" hreflang="fr" title="Français">fr</a><a class="" href="/es/lexikon.html" hreflang="es" title="Español">es</a></span>
 <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=nav" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>App laden</span></a>
-</nav></div></header><div class="pagehead"><div class="wrap narrow"><span class="label">Lexikon</span>
+</div></header><div class="pagehead"><div class="wrap narrow"><span class="label">Lexikon</span>
 <h1 style="margin-top:.3em">Lexikon</h1><p class="lead" style="margin:0">Jede Kennzahl, die MoatLens anzeigt, wird in der App erklärt. Hier stehen dieselben Erklärungen zum Nachlesen — in Alltagssprache, ohne Fachjargon, mit dem MoatLens-Tipp, worauf es wirklich ankommt.</p></div></div>
 <section class="first"><div class="wrap"><div class="termlist"><a href="/l-kgv.html"><strong>Kurs-Gewinn-Verhältnis (KGV)</strong><span>Stell dir vor, du kaufst die ganze Firma: Das KGV sagt, wie viele Jahresgewinne du für den heutigen Preis zahl…</span></a><a href="/l-kbv.html"><strong>Kurs-Buchwert-Verhältnis (KBV)</strong><span>Das KBV vergleicht den Börsenwert mit dem Eigenkapital aus der Bilanz – dem „Buchwert". Grob gesagt: was übrig…</span></a><a href="/l-roe.html"><strong>Eigenkapitalrendite (ROE)</strong><span>Der ROE zeigt, wie viel Gewinn eine Firma aus dem Geld ihrer Eigentümer (dem Eigenkapital) macht. 20 % heißt: …</span></a><a href="/l-verschuldung.html"><strong>Verschuldung (Schulden / EBITDA)</strong><span>Zeigt, wie viele Jahre operativer Gewinn (EBITDA) nötig wären, um die Netto-Schulden zu tilgen. 2 bedeutet: ru…</span></a><a href="/l-nettomarge.html"><strong>Nettomarge</strong><span>Von jedem Euro Umsatz – wie viel bleibt am Ende als echter Gewinn übrig? 20 % heißt: aus 100 € Umsatz werden 2…</span></a><a href="/l-dividendenrendite.html"><strong>Dividendenrendite</strong><span>Zeigt die jährliche Ausschüttung im Verhältnis zum Kurs. 3 % bedeutet: 3 € Dividende je 100 € Kurs.…</span></a><a href="/l-umsatzwachstum.html"><strong>Umsatzwachstum</strong><span>Zeigt, wie stark der Umsatz gegenüber dem Vorjahr gewachsen ist – der Treibstoff für künftige Gewinne.…</span></a><a href="/l-gewinnwachstum.html"><strong>Gewinnwachstum</strong><span>Zeigt, wie schnell der echte Gewinn wächst, nicht nur der Umsatz. Idealerweise hält er mit dem Umsatz Schritt …</span></a><a href="/l-freier-cashflow.html"><strong>Free Cashflow</strong><span>Das Geld, das nach allen laufenden Kosten und Investitionen wirklich übrig bleibt und frei verwendet werden ka…</span></a><a href="/l-marktkapitalisierung.html"><strong>Marktkapitalisierung</strong><span>Der gesamte Börsenwert einer Firma: Aktienkurs × Anzahl aller Aktien. Beantwortet die Frage „Was kostet die ga…</span></a><a href="/l-bruttomarge.html"><strong>Bruttomarge</strong><span>Von jedem Euro Umsatz – wie viel bleibt übrig, nachdem nur die direkten Herstellungskosten abgezogen sind? 60 …</span></a><a href="/l-operative-marge.html"><strong>Operative Marge</strong><span>Von jedem Euro Umsatz – wie viel bleibt als Gewinn aus dem eigentlichen Geschäft übrig, bevor Zinsen und Steue…</span></a><a href="/l-ebitda.html"><strong>EBITDA</strong><span>Der Gewinn, bevor Zinsen, Steuern und Abschreibungen abgezogen werden. Gedacht als grobe Näherung dafür, wie v…</span></a><a href="/l-operativer-cashflow.html"><strong>Operativer Cashflow</strong><span>Das Geld, das aus dem laufenden Geschäft tatsächlich in die Kasse fließt – bevor investiert wird. Nicht der Ge…</span></a><a href="/l-cash-conversion.html"><strong>Cash Conversion</strong><span>Wie viel vom Buchgewinn am Ende als echtes, frei verfügbares Geld ankommt. 85 % heißt: aus 100 € ausgewiesenem…</span></a><a href="/l-owner-earnings.html"><strong>Owner Earnings</strong><span>Das Geld, das ein Eigentümer der Firma jedes Jahr entnehmen könnte, ohne das Geschäft zu schwächen. Also der G…</span></a><a href="/l-investitionsausgaben.html"><strong>Investitionsausgaben</strong><span>Das Geld, das eine Firma für Fabriken, Maschinen, Software oder Gebäude ausgibt. Oft findet man dafür auch das…</span></a><a href="/l-roic.html"><strong>Kapitalrendite (ROIC)</strong><span>Wie viel Gewinn eine Firma aus dem gesamten Kapital erwirtschaftet, das im Geschäft steckt – eigenes und gelie…</span></a><a href="/l-aktienrueckkauf.html"><strong>Aktienrückkauf</strong><span>Die Firma kauft eigene Aktien am Markt zurück und zieht sie ein. Danach gibt es weniger Anteile – dein Stück a…</span></a><a href="/l-verwaesserung.html"><strong>Verwässerung</strong><span>Die Firma gibt neue Aktien aus, meist als Vergütung für Mitarbeiter. Die Zahl der Anteile steigt – dein Stück …</span></a><a href="/l-goodwill.html"><strong>Firmenwert (Goodwill)</strong><span>Was bei einer Übernahme über den Wert der greifbaren Dinge hinaus bezahlt wurde – für Marke, Kundenstamm, Know…</span></a><a href="/l-abschreibung.html"><strong>Abschreibung</strong><span>Eine Maschine kostet heute 10 Millionen und hält zehn Jahre. Statt die Kosten einmal voll zu buchen, verteilt …</span></a><a href="/l-sondereffekte.html"><strong>Bereinigte Zahlen &amp; Sondereffekte</strong><span>Die Firma zeigt zwei Gewinne: den nach den Regeln berechneten – und einen „bereinigten", bei dem einmalige Bel…</span></a><a href="/l-burggraben.html"><strong>Burggraben</strong><span>Ein dauerhafter Vorteil, der es Wettbewerbern schwer macht, einer Firma ihre Kunden und Gewinne abzunehmen. Ei…</span></a><a href="/l-preissetzungsmacht.html"><strong>Preissetzungsmacht</strong><span>Die Fähigkeit, Preise anzuheben, ohne dass die Kunden abwandern. Der wohl deutlichste Beweis für einen Burggra…</span></a><a href="/l-wechselkosten.html"><strong>Wechselkosten</strong><span>Der Aufwand, den ein Kunde hätte, wenn er zur Konkurrenz wechseln wollte. Nicht nur Geld – auch Zeit, Umlernen…</span></a><a href="/l-netzwerkeffekt.html"><strong>Netzwerkeffekt</strong><span>Ein Dienst wird für jeden Nutzer wertvoller, je mehr Menschen ihn nutzen. Ein Marktplatz mit vielen Käufern zi…</span></a><a href="/l-wiederkehrende-umsaetze.html"><strong>Wiederkehrende Umsätze</strong><span>Umsätze, die von selbst wiederkommen – Abonnements, Wartungsverträge, Verbrauchsmaterial. Das Gegenteil ist de…</span></a><a href="/l-organisches-wachstum.html"><strong>Organisches Wachstum</strong><span>Wachstum aus eigener Kraft – mehr verkaufte Produkte, höhere Preise, neue Kunden. Nicht das Wachstum, das ents…</span></a><a href="/l-nettoverschuldung.html"><strong>Nettoverschuldung</strong><span>Alle Schulden zusammen, abzüglich des Bargelds, das die Firma bereits besitzt. Hat sie mehr Bargeld als Schuld…</span></a><a href="/l-rueckstellungen.html"><strong>Rückstellungen</strong><span>Geld, das die Firma für Verpflichtungen zurücklegt, die sicher oder wahrscheinlich kommen, deren genaue Höhe a…</span></a><a href="/l-working-capital.html"><strong>Working Capital</strong><span>Das Geld, das im Tagesgeschäft gebunden ist: in Lagerbeständen und in Rechnungen, die Kunden noch nicht bezahl…</span></a><a href="/l-zukaeufe.html"><strong>Zukäufe (Akquisitionen)</strong><span>Das Unternehmen kauft ein anderes Unternehmen oder einen Geschäftsteil dazu – Produkte, Kunden und Mitarbeiter…</span></a><a href="/l-tilgung.html"><strong>Tilgung</strong><span>Tilgung heißt: Das Unternehmen zahlt aufgenommene Schulden zurück – nicht die Zinsen, die laufen extra, sonder…</span></a><a href="/l-kapitalallokation.html"><strong>Kapitalallokation</strong><span>Kapitalallokation bedeutet: Was macht das Unternehmen mit dem verdienten Geld? Klug investieren, Schulden abba…</span></a><a href="/l-geschaeftsmodell.html"><strong>Geschäftsmodell</strong><span>Diese Bewertung schaut auf die Robustheit des Geschäftsmodells – wie vorhersehbar, einfach und krisenfest das …</span></a><a href="/l-management.html"><strong>Management</strong><span>Diese Bewertung schaut darauf, wie ehrlich und fähig die Unternehmensführung ist – beurteilt aus dem, was im G…</span></a><a href="/l-strukturelle-risiken.html"><strong>Strukturelle Risiken</strong><span>Hier werden strukturelle Risiken bewertet, die über die reinen Kennzahlen hinausgehen und erst im Geschäftsber…</span></a><a href="/l-bewertung.html"><strong>Bewertung</strong><span>Die Bewertung beschreibt, wie teuer eine Aktie aktuell im Verhältnis zu dem ist, was das Unternehmen tatsächli…</span></a><a href="/l-kapitalrueckgabe.html"><strong>Kapitalrückgabe</strong><span>Die Kapitalrückgabe zeigt, wie viel Geld ein Unternehmen über Dividenden und Aktienrückkäufe an seine Aktionär…</span></a></div>
 <div style="text-align:center;margin-top:40px"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=wissen" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Im Play Store ansehen</span></a></div></div></section><footer><div class="wrap">
