@@ -95,9 +95,10 @@ box-shadow:0 2px 14px rgba(212,175,55,.05)}
 /* Screenshot-Galerie */
 .rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory}
 .rail::-webkit-scrollbar{height:6px}.rail::-webkit-scrollbar-thumb{background:var(--gold-border-mid);border-radius:99px}
-.rail figure{margin:0;flex:0 0 300px;scroll-snap-align:center}
-@media(max-width:560px){.rail figure{flex:0 0 78vw}}
-.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);width:100%;background:#000}
+.rail figure{margin:0;flex:0 0 auto;scroll-snap-align:center}
+.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
+height:min(58vh,560px);width:auto;max-width:none}
+@media(max-width:560px){.rail img{height:auto;width:76vw}}
 .rail figcaption{font-size:.86rem;color:var(--muted2);margin-top:12px;text-align:center}
 .lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none;
 align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
@@ -160,15 +161,27 @@ footer a{color:var(--muted2)}
 <span class="langs"><a class="" href="/l-burggraben.html" hreflang="de" title="Deutsch">de</a><a class="" href="/en/l-burggraben.html" hreflang="en" title="English">en</a><a class="" href="/fr/l-burggraben.html" hreflang="fr" title="Français">fr</a><a class="on" href="/es/l-burggraben.html" hreflang="es" title="Español">es</a></span>
 <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=nav" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Descargar</span></a>
 </nav></div></header><div class="pagehead"><div class="wrap narrow">
-<a href="/es/lexikon.html" class="small">← Volver al glosario</a>
+<a href="/es/lexikon.html" class="small back"
+   onclick="if(document.referrer&amp;&amp;history.length>1){history.back();return false}">← Volver</a>
 <h1 style="margin-top:.4em">Ventaja competitiva duradera</h1></div></div>
 <section class="first"><div class="wrap narrow"><p>Una ventaja perdurable que dificulta a los competidores arrebatar a una empresa sus clientes y sus beneficios. Una marca fuerte, altos costes de cambio, un efecto de red, una ventaja de costes que nadie puede copiar.</p>
-<p class="tipbox"><strong class="tip">Consejo MoatLens:</strong> Es el corazón de lo que MoatLens busca — pero nunca se ve directamente, solo sus huellas en las cifras. Rentabilidad del capital elevada durante diez años. Márgenes que aguantan incluso en los años malos. Subidas de precio sin perder clientes. Donde una empresa deja esas huellas, casi siempre hay una ventaja duradera. Donde faltan, no ayuda el relato más hermoso del informe anual.</p>
+<p class="tipbox"><strong class="tip">Consejo MoatLens:</strong> Es el corazón de lo que MoatLens busca — pero nunca se ve directamente, solo sus huellas en las cifras. Rentabilidad del capital elevada durante diez años. Márgenes que aguantan incluso en los años malos. Subidas de precio sin perder clientes. Donde una empresa deja esas huellas, casi siempre hay una ventaja duradera. Donde faltan, no ayuda el relato más hermoso del informe anual.</p><h2 style="margin-top:40px;font-size:1.25rem">Como factor del MoatLens-Score</h2><p>El foso económico (ingl. «Moat») describe la ventaja competitiva duradera de una empresa – es decir, aquello que la protege de la competencia.</p>
+<p>¿Por qué es importante?</p>
+<p>Las empresas sin foso económico deben luchar constantemente por sus clientes, a menudo por el precio. Eso presiona los beneficios. Las empresas con un foso económico amplio pueden, en cambio, obtener beneficios altos durante años sin que nuevos competidores las desplacen.</p>
+<p>Los fosos económicos típicos son: marcas fuertes (p. ej. bienes de consumo conocidos a los que los clientes recurren por costumbre una y otra vez), efectos de red (p. ej. plataformas que ganan valor cuantos más usuarios tienen), ventajas de coste por el tamaño, altos costes de cambio para los clientes, o patentes.</p>
+<p>Perspectiva MoatLens: Un principio central del Value Investing dice: busca «fortalezas con fosos amplios y duraderos» – empresas que un intruso solo puede atacar con dificultad. El foso económico se considera a menudo uno de los factores individuales más importantes en una decisión de inversión, porque asegura la capacidad de generar beneficios a largo plazo.</p>
+<p>A qué debes prestar atención: Pregúntate: ¿por qué compran los clientes en esta empresa y no en la competencia? Si la respuesta es solo «porque es más barata», el foso económico suele ser estrecho o inexistente.</p><h2 style="margin-top:40px;font-size:1.25rem">Lo que aporta el informe anual</h2><p>Aquí se trata de la profundidad y la durabilidad del foso económico – es decir, lo que protege a la empresa de la competencia. Esta visión complementa las cifras con lo que se percibe de forma cualitativa en el informe.</p>
+<p>¿Por qué es importante?</p>
+<p>Indicadores como <a class="gloss" href="/es/l-nettomarge.html">márgenes</a> altos muestran QUE existe una ventaja. El informe anual muestra EN QUÉ se basa y si se mantiene: poder de fijación de precios (los clientes pagan más sin marcharse), costes de cambio (cambiar es engorroso o caro), fuerza de marca, efectos de red.</p>
+<p>En qué se fija MoatLens:</p>
+<p>¿Es la ventaja estructural y duradera – o fácilmente atacable? ¿Crece el foso económico o se resquebraja? Una ventaja amplia y estable hace subir la nota, una menguante la hace bajar.</p>
 <div class="card" style="margin-top:32px"><h3>Así se ve en MoatLens</h3>
 <p>En MoatLens esta explicación está justo al lado de la cifra — a un toque. Y ves la tendencia a diez años en vez de un valor aislado.</p>
 <div style="margin-top:18px"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=lexikon" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Ver en Google Play</span></a></div></div>
 <h2 style="margin-top:44px;font-size:1.2rem">Más términos</h2>
-<div class="termlist"><a href="/es/l-kgv.html"><strong>Ratio precio/beneficio (PER)</strong></a><a href="/es/l-roe.html"><strong>Rentabilidad sobre fondos propios (ROE)</strong></a><a href="/es/l-freier-cashflow.html"><strong>Free cash-flow</strong></a><a href="/es/l-nettomarge.html"><strong>Margen neto</strong></a><a href="/es/l-verschuldung.html"><strong>Endeudamiento (Deuda / EBITDA)</strong></a><a href="/es/l-dividendenrendite.html"><strong>Rentabilidad por dividendo</strong></a></div></div></section><footer><div class="wrap">
+<div class="termlist"><a href="/es/l-kgv.html"><strong>Ratio precio/beneficio (PER)</strong></a><a href="/es/l-kbv.html"><strong>Ratio precio/valor contable (P/B)</strong></a><a href="/es/l-roe.html"><strong>Rentabilidad sobre fondos propios (ROE)</strong></a><a href="/es/l-verschuldung.html"><strong>Endeudamiento (Deuda / EBITDA)</strong></a><a href="/es/l-nettomarge.html"><strong>Margen neto</strong></a><a href="/es/l-dividendenrendite.html"><strong>Rentabilidad por dividendo</strong></a></div>
+<p style="margin-top:22px"><a href="/es/lexikon.html">Todos los términos del glosario →</a></p>
+</div></section><footer><div class="wrap">
 <img src="/wordmark.png" alt="MoatLens" style="width:190px;margin-bottom:22px;opacity:.9">
 <div class="flinks">
 <a href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=footer" rel="noopener">Google Play</a>
