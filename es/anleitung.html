@@ -42,13 +42,41 @@ h2{font-size:clamp(1.35rem,3vw,1.95rem)}h3{font-size:1.06rem;margin-bottom:.35em
 p{margin:0 0 1em}.muted{color:var(--muted2)}.small{font-size:.9rem}
 .label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
 header{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,15,20,.85);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
-.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+/* Kopfzeile: eine Reihe auf dem Desktop, zwei Reihen auf dem Handy.
+   Wichtig: KEINE feste Höhe — sonst wird die zweite Reihe abgeschnitten. */
+.nav{display:flex;align-items:center;gap:14px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto;order:1}
 .brand img.crest{width:28px;height:28px}.brand img.wm{height:19px;width:auto}
-.nav nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.nav nav a{color:var(--muted2);font-size:.93rem}
-.nav nav a:hover,.nav nav a[aria-current]{color:var(--tx);text-decoration:none}
-@media(max-width:900px){.hide-s{display:none}}
+.navlinks{display:flex;gap:20px;align-items:center;order:2;margin-left:auto}
+.navlinks a{color:var(--muted2);font-size:.93rem;white-space:nowrap}
+.navlinks a:hover,.navlinks a[aria-current]{color:var(--tx);text-decoration:none}
+.nav>.langs{order:3}
+.nav>.btn{order:4}
+@media(max-width:900px){
+  /* nur oben/unten — .nav ist zugleich .wrap und braucht dessen Seitenabstand */
+  .nav{padding-top:9px;padding-bottom:9px;min-height:0;row-gap:8px}
+  .nav>.langs{order:2;margin-left:auto}
+  .nav>.btn{order:3}
+  /* Die Menüpunkte bekommen eine eigene, waagerecht scrollbare Reihe —
+     so bleiben sie auf jedem Gerät erreichbar, statt ausgeblendet zu werden. */
+  .navlinks{order:5;width:100%;margin-left:0;justify-content:center;gap:22px;
+            overflow-x:auto;-webkit-overflow-scrolling:touch;
+            scrollbar-width:none;padding-bottom:2px}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{font-size:.95rem;padding:2px 0}
+  .navlinks a[aria-current]{border-bottom:2px solid var(--gold-border-mid)}
+}
+@media(max-width:480px){
+  /* Schmales Handy: Reihe 1 Logo + Sprachen + App-Button, Reihe 2 das Menü über
+     die volle Breite. Alles wird kompakter, damit Reihe 1 nicht umbricht und das
+     Menü ohne Wischen vollständig sichtbar bleibt. */
+  .brand img.wm{display:none}
+  .nav{gap:8px}
+  .nav>.langs{gap:3px}
+  .langs a{font-size:.7rem;padding:3px 4px}
+  .btn-sm>span{min-height:38px;padding:0 12px;font-size:.85rem}
+  .navlinks{gap:18px}
+}
 /* ── App-Button: schwarzer Korpus, metallischer Goldring (GoldGradientButton) ── */
 .btn{display:inline-block;padding:2px;border-radius:14px;
 background:linear-gradient(135deg,#FAD868 0%,#E0A836 25%,#85500C 50%,#C9922C 75%,#F3C450 100%);
@@ -153,14 +181,15 @@ footer a{color:var(--muted2)}
 </head>
 <body><header><div class="wrap nav">
 <a class="brand" href="/es/"><img class="crest" src="/crest.png" alt="MoatLens" width="28" height="28"><img class="wm" src="/wordmark.png" alt="MoatLens"></a>
-<nav>
-<a href="/es/index.html" class="hide-s">Inicio</a>
-<a href="/es/lexikon.html" class="hide-s">Glosario</a>
-<a href="/es/anleitung.html" class="hide-s" aria-current="page">Cómo usarla</a>
-<a href="/es/magazin.html" class="hide-s">Revista</a>
+<nav class="navlinks">
+<a href="/es/index.html">Inicio</a>
+<a href="/es/lexikon.html">Glosario</a>
+<a href="/es/anleitung.html" aria-current="page">Cómo usarla</a>
+<a href="/es/magazin.html">Revista</a>
+</nav>
 <span class="langs"><a class="" href="/anleitung.html" hreflang="de" title="Deutsch">de</a><a class="" href="/en/anleitung.html" hreflang="en" title="English">en</a><a class="" href="/fr/anleitung.html" hreflang="fr" title="Français">fr</a><a class="on" href="/es/anleitung.html" hreflang="es" title="Español">es</a></span>
 <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=nav" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Descargar</span></a>
-</nav></div></header><div class="pagehead"><div class="wrap narrow"><span class="label">Cómo usarla</span>
+</div></header><div class="pagehead"><div class="wrap narrow"><span class="label">Cómo usarla</span>
 <h1 style="margin-top:.3em">Cómo usar MoatLens</h1><p class="lead" style="margin:0">MoatLens no decide por ti — hace que la decisión sea trazable. Esta guía muestra el camino que siguen los usuarios con experiencia. Calcula entre diez y veinte minutos para una empresa que aún no conoces.</p></div></div>
 <section class="first"><div class="wrap narrow steps"><div class="step"><h3>1 · Busca la empresa, no adivines el ticker</h3><p class="muted">Escribe el nombre de la empresa, no solo el símbolo. MoatLens cubre las principales bolsas europeas y estadounidenses. Si la misma empresa cotiza en varias bolsas, elige la de origen — allí los datos son más completos.</p></div><div class="step"><h3>2 · Lee la puntuación como una pregunta, no como una respuesta</h3><p class="muted">El MoatLens-Score resume ocho factores de calidad. No te dice si comprar — te dice cuán sólido parece el negocio en las cifras. Una puntuación baja no es un rechazo, es una invitación a mirar más de cerca.</p></div><div class="step"><h3>3 · Despliega cada factor</h3><p class="muted">El valor real está un nivel más abajo. Toca cada uno de los ocho factores: verás qué indicador hay detrás, cómo se calcula y qué se considera sólido.</p></div><div class="step"><h3>4 · Diez años, no hoy</h3><p class="muted">Cambia a la vista de tendencias. La pregunta decisiva no es «¿cuánto es el margen?» sino «¿hacia dónde va desde hace diez años?». Fíjate sobre todo en el <a class="gloss" href="/es/l-freier-cashflow.html">flujo de caja libre</a> — es la cifra más difícil de maquillar.</p></div><div class="step"><h3>5 · Revisa «tu parte de la empresa»</h3><p class="muted">Esta vista responde a una pregunta que muchos nunca hacen: ¿mi parte ha crecido o se ha reducido con los años? Un número de acciones a la baja significa que tu participación crece sin hacer nada. Al alza significa <a class="gloss" href="/es/l-verwaesserung.html">dilución</a>.</p></div><div class="step"><h3>6 · Deja que te lean el informe anual</h3><p class="muted">El resumen asistido por IA describe el <a class="gloss" href="/es/l-geschaeftsmodell.html">modelo de negocio</a>, la <a class="gloss" href="/es/l-kapitalallokation.html">asignación de capital</a>, la <a class="gloss" href="/es/l-burggraben.html">ventaja competitiva</a> y los riesgos. No juzga y nunca ve la cotización. Úsalo como punto de partida, no como sustituto.</p></div><div class="step"><h3>7 · Escribe tu tesis — antes</h3><p class="muted">El diario de inversión es la parte menos popular y más valiosa. Anota en tres frases por qué te interesa esta empresa y qué tendría que pasar para que cambies de opinión. En dos años esa nota valdrá más que cualquier gráfico.</p></div></div></section>
 <section><div class="wrap"><h2>Tres errores que vemos una y otra vez</h2><div class="grid g3" style="margin-top:24px"><div class="card"><h3>Leer la puntuación como señal de compra</h3><p>La puntuación describe la calidad del negocio. No dice nada del precio. Una empresa excelente puede ser una mala inversión si se paga demasiado por ella — y ninguna app te quita ese juicio.</p></div><div class="card"><h3>Mirar un indicador de forma aislada</h3><p>Un <a class="gloss" href="/es/l-roe.html">ROE</a> alto con mucha <a class="gloss" href="/es/l-verschuldung.html">deuda</a> es algo totalmente distinto a un ROE alto sin deuda. Los indicadores solo forman una imagen en conjunto — por eso MoatLens los muestra juntos.</p></div><div class="card"><h3>Analizar solo lo que ya tienes</h3><p>El análisis de cartera es cómodo, pero el aprendizaje está en la comparación. Analiza tres empresas del mismo sector seguidas — las diferencias saltan a la vista.</p></div></div></div></section>

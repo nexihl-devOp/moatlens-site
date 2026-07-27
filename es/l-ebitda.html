@@ -42,13 +42,41 @@ h2{font-size:clamp(1.35rem,3vw,1.95rem)}h3{font-size:1.06rem;margin-bottom:.35em
 p{margin:0 0 1em}.muted{color:var(--muted2)}.small{font-size:.9rem}
 .label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
 header{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,15,20,.85);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
-.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+/* Kopfzeile: eine Reihe auf dem Desktop, zwei Reihen auf dem Handy.
+   Wichtig: KEINE feste Höhe — sonst wird die zweite Reihe abgeschnitten. */
+.nav{display:flex;align-items:center;gap:14px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto;order:1}
 .brand img.crest{width:28px;height:28px}.brand img.wm{height:19px;width:auto}
-.nav nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.nav nav a{color:var(--muted2);font-size:.93rem}
-.nav nav a:hover,.nav nav a[aria-current]{color:var(--tx);text-decoration:none}
-@media(max-width:900px){.hide-s{display:none}}
+.navlinks{display:flex;gap:20px;align-items:center;order:2;margin-left:auto}
+.navlinks a{color:var(--muted2);font-size:.93rem;white-space:nowrap}
+.navlinks a:hover,.navlinks a[aria-current]{color:var(--tx);text-decoration:none}
+.nav>.langs{order:3}
+.nav>.btn{order:4}
+@media(max-width:900px){
+  /* nur oben/unten — .nav ist zugleich .wrap und braucht dessen Seitenabstand */
+  .nav{padding-top:9px;padding-bottom:9px;min-height:0;row-gap:8px}
+  .nav>.langs{order:2;margin-left:auto}
+  .nav>.btn{order:3}
+  /* Die Menüpunkte bekommen eine eigene, waagerecht scrollbare Reihe —
+     so bleiben sie auf jedem Gerät erreichbar, statt ausgeblendet zu werden. */
+  .navlinks{order:5;width:100%;margin-left:0;justify-content:center;gap:22px;
+            overflow-x:auto;-webkit-overflow-scrolling:touch;
+            scrollbar-width:none;padding-bottom:2px}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{font-size:.95rem;padding:2px 0}
+  .navlinks a[aria-current]{border-bottom:2px solid var(--gold-border-mid)}
+}
+@media(max-width:480px){
+  /* Schmales Handy: Reihe 1 Logo + Sprachen + App-Button, Reihe 2 das Menü über
+     die volle Breite. Alles wird kompakter, damit Reihe 1 nicht umbricht und das
+     Menü ohne Wischen vollständig sichtbar bleibt. */
+  .brand img.wm{display:none}
+  .nav{gap:8px}
+  .nav>.langs{gap:3px}
+  .langs a{font-size:.7rem;padding:3px 4px}
+  .btn-sm>span{min-height:38px;padding:0 12px;font-size:.85rem}
+  .navlinks{gap:18px}
+}
 /* ── App-Button: schwarzer Korpus, metallischer Goldring (GoldGradientButton) ── */
 .btn{display:inline-block;padding:2px;border-radius:14px;
 background:linear-gradient(135deg,#FAD868 0%,#E0A836 25%,#85500C 50%,#C9922C 75%,#F3C450 100%);
@@ -153,14 +181,15 @@ footer a{color:var(--muted2)}
 </head>
 <body><header><div class="wrap nav">
 <a class="brand" href="/es/"><img class="crest" src="/crest.png" alt="MoatLens" width="28" height="28"><img class="wm" src="/wordmark.png" alt="MoatLens"></a>
-<nav>
-<a href="/es/index.html" class="hide-s">Inicio</a>
-<a href="/es/lexikon.html" class="hide-s" aria-current="page">Glosario</a>
-<a href="/es/anleitung.html" class="hide-s">Cómo usarla</a>
-<a href="/es/magazin.html" class="hide-s">Revista</a>
+<nav class="navlinks">
+<a href="/es/index.html">Inicio</a>
+<a href="/es/lexikon.html" aria-current="page">Glosario</a>
+<a href="/es/anleitung.html">Cómo usarla</a>
+<a href="/es/magazin.html">Revista</a>
+</nav>
 <span class="langs"><a class="" href="/l-ebitda.html" hreflang="de" title="Deutsch">de</a><a class="" href="/en/l-ebitda.html" hreflang="en" title="English">en</a><a class="" href="/fr/l-ebitda.html" hreflang="fr" title="Français">fr</a><a class="on" href="/es/l-ebitda.html" hreflang="es" title="Español">es</a></span>
 <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=nav" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Descargar</span></a>
-</nav></div></header><div class="pagehead"><div class="wrap narrow">
+</div></header><div class="pagehead"><div class="wrap narrow">
 <a href="/es/lexikon.html" class="small back"
    onclick="if(document.referrer&amp;&amp;history.length>1){history.back();return false}">← Volver</a>
 <h1 style="margin-top:.4em">EBITDA</h1></div></div>
