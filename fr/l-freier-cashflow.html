@@ -95,9 +95,10 @@ box-shadow:0 2px 14px rgba(212,175,55,.05)}
 /* Screenshot-Galerie */
 .rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory}
 .rail::-webkit-scrollbar{height:6px}.rail::-webkit-scrollbar-thumb{background:var(--gold-border-mid);border-radius:99px}
-.rail figure{margin:0;flex:0 0 300px;scroll-snap-align:center}
-@media(max-width:560px){.rail figure{flex:0 0 78vw}}
-.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);width:100%;background:#000}
+.rail figure{margin:0;flex:0 0 auto;scroll-snap-align:center}
+.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
+height:min(58vh,560px);width:auto;max-width:none}
+@media(max-width:560px){.rail img{height:auto;width:76vw}}
 .rail figcaption{font-size:.86rem;color:var(--muted2);margin-top:12px;text-align:center}
 .lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none;
 align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
@@ -160,15 +161,24 @@ footer a{color:var(--muted2)}
 <span class="langs"><a class="" href="/l-freier-cashflow.html" hreflang="de" title="Deutsch">de</a><a class="" href="/en/l-freier-cashflow.html" hreflang="en" title="English">en</a><a class="on" href="/fr/l-freier-cashflow.html" hreflang="fr" title="Français">fr</a><a class="" href="/es/l-freier-cashflow.html" hreflang="es" title="Español">es</a></span>
 <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=nav" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Télécharger</span></a>
 </nav></div></header><div class="pagehead"><div class="wrap narrow">
-<a href="/fr/lexikon.html" class="small">← Retour au lexique</a>
+<a href="/fr/lexikon.html" class="small back"
+   onclick="if(document.referrer&amp;&amp;history.length>1){history.back();return false}">← Retour</a>
 <h1 style="margin-top:.4em">Free cash-flow</h1></div></div>
 <section class="first"><div class="wrap narrow"><p>L'argent qui reste réellement, librement utilisable, après tous les coûts courants et les investissements. Souvent plus honnête que le bénéfice affiché, car il est plus difficile à embellir.</p>
-<p class="tipbox"><strong class="tip">Conseil MoatLens:</strong> Une formule simple : le bénéfice est une opinion, la trésorerie est un fait. Le free cash-flow est l'argent qui vous revient réellement en tant que propriétaire. Tenez compte du secteur : les entreprises qui doivent constamment beaucoup investir (p. ex. télécoms, services aux collectivités, industrie, immobilier) ont structurellement moins de trésorerie libre ; chez les banques, l'indicateur convient à peine. L'idéal est une entreprise qui dégage beaucoup de trésorerie sans engloutir sans cesse de nouveaux capitaux – elle peut financer dividendes, rachats et croissance par ses propres moyens.</p>
+<p class="tipbox"><strong class="tip">Conseil MoatLens:</strong> Une formule simple : le bénéfice est une opinion, la trésorerie est un fait. Le free cash-flow est l'argent qui vous revient réellement en tant que propriétaire. Tenez compte du secteur : les entreprises qui doivent constamment beaucoup investir (p. ex. télécoms, services aux collectivités, industrie, immobilier) ont structurellement moins de trésorerie libre ; chez les banques, l'indicateur convient à peine. L'idéal est une entreprise qui dégage beaucoup de trésorerie sans engloutir sans cesse de nouveaux capitaux – elle peut financer dividendes, rachats et croissance par ses propres moyens.</p><h2 style="margin-top:40px;font-size:1.25rem">Comme facteur du MoatLens-Score</h2><p>Le free cash-flow (flux de trésorerie disponible) est l'argent qui reste réellement à une entreprise après avoir payé tous les coûts courants ET les investissements nécessaires.</p>
+<p>Pourquoi est-ce important ?</p>
+<p>Le bénéfice affiché au bilan est une grandeur comptable – il peut être faussé par les amortissements, les règles comptables et d'autres effets. Le free cash-flow montre en revanche combien de trésorerie entre réellement en caisse. L'entreprise peut utiliser cet argent pour des dividendes, des <a class="gloss" href="/fr/l-aktienrueckkauf.html">rachats d'actions</a>, le désendettement ou de nouveaux investissements.</p>
+<p>Quelles valeurs sont considérées comme bonnes ?</p>
+<ul class="clean"><li>Un free cash-flow constamment positif sur plusieurs années est un fort gage de qualité</li><li>Un free cash-flow croissant dans le temps montre que l'activité passe à l'échelle</li></ul>
+<p>Perspective MoatLens : Le cash-flow est considéré comme particulièrement parlant, car il est plus difficile à manipuler que le bénéfice comptable. La question décisive est : combien de vrai argent en ressort finalement, qui appartient aux propriétaires ?</p>
+<p>Ce à quoi vous devez faire attention : Comparez le free cash-flow au bénéfice affiché. Si le bénéfice est nettement supérieur au free cash-flow sur plusieurs années, il vaut la peine de regarder de plus près pourquoi.</p>
 <div class="card" style="margin-top:32px"><h3>À quoi cela ressemble dans MoatLens</h3>
 <p>Dans MoatLens, cette explication se trouve juste à côté du chiffre — à un toucher. Et vous voyez la tendance sur dix ans plutôt qu'une valeur isolée.</p>
 <div style="margin-top:18px"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=lexikon" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Voir sur Google Play</span></a></div></div>
 <h2 style="margin-top:44px;font-size:1.2rem">Autres termes</h2>
-<div class="termlist"><a href="/fr/l-kgv.html"><strong>Ratio cours/bénéfice (PER)</strong></a><a href="/fr/l-roe.html"><strong>Rentabilité des capitaux propres (ROE)</strong></a><a href="/fr/l-nettomarge.html"><strong>Marge nette</strong></a><a href="/fr/l-verschuldung.html"><strong>Endettement (Dette / EBITDA)</strong></a><a href="/fr/l-dividendenrendite.html"><strong>Rendement du dividende</strong></a><a href="/fr/l-roic.html"><strong>Rentabilité du capital investi (ROIC)</strong></a></div></div></section><footer><div class="wrap">
+<div class="termlist"><a href="/fr/l-kgv.html"><strong>Ratio cours/bénéfice (PER)</strong></a><a href="/fr/l-kbv.html"><strong>Ratio cours/valeur comptable (P/B)</strong></a><a href="/fr/l-roe.html"><strong>Rentabilité des capitaux propres (ROE)</strong></a><a href="/fr/l-verschuldung.html"><strong>Endettement (Dette / EBITDA)</strong></a><a href="/fr/l-nettomarge.html"><strong>Marge nette</strong></a><a href="/fr/l-dividendenrendite.html"><strong>Rendement du dividende</strong></a></div>
+<p style="margin-top:22px"><a href="/fr/lexikon.html">Tous les termes du lexique →</a></p>
+</div></section><footer><div class="wrap">
 <img src="/wordmark.png" alt="MoatLens" style="width:190px;margin-bottom:22px;opacity:.9">
 <div class="flinks">
 <a href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=footer" rel="noopener">Google Play</a>
