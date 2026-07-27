@@ -109,6 +109,28 @@ background:linear-gradient(180deg,rgba(6,9,14,.55),rgba(11,15,20,.75) 55%,var(--
 border:1px solid var(--gold-border-mid);border-radius:100px;padding:6px 16px;margin-bottom:22px;background:rgba(6,9,14,.5)}
 .lead{font-size:1.12rem;color:var(--muted2);max-width:38em;margin:0 auto 1em}
 .cta-note{font-size:.86rem;color:var(--muted);margin-top:18px}
+/* Vertrauenszeile unter den Hero-Buttons */
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin:22px auto 0;max-width:58em;
+list-style:none;padding:0;font-size:.9rem;color:var(--muted2)}
+.trust li{display:flex;align-items:center;gap:8px}
+.trust li::before{content:"✓";flex:0 0 auto;color:var(--gold);font-weight:700;font-size:.86rem;
+line-height:1;width:20px;height:20px;display:flex;align-items:center;justify-content:center;
+border-radius:50%;border:1px solid var(--gold-border-mid);background:var(--gold-bg)}
+@media(max-width:560px){.trust{gap:8px 0;flex-direction:column;align-items:flex-start;
+max-width:22em;text-align:left}}
+/* Auf dem Handy wird der Hero kompakter, damit die Vertrauenszeile nicht unter
+   den ersten Bildschirm rutscht. */
+@media(max-width:700px){
+  /* Auf dem Handy steht die Vertrauenszeile VOR den Buttons — sonst rutscht sie
+     unter den ersten Bildschirm. Der Kopfzeilen-Button bleibt ohnehin sichtbar. */
+  .hero-in{display:flex;flex-direction:column}
+  .trust{order:1;margin-top:20px}.cta-row{order:2;margin-top:22px}.cta-note{order:3}
+  .hero{padding:44px 0 46px}
+  .hero .wm{width:min(300px,62vw);margin-bottom:18px}
+  .kicker{margin-bottom:16px;padding:5px 13px}
+  .lead{font-size:1.04rem}
+  .cta-note{margin-top:14px}
+}
 .pagehead{padding:64px 0 8px;background:radial-gradient(ellipse at 50% -20%,rgba(212,175,55,.10),transparent 60%)}
 section{padding:60px 0;border-top:1px solid var(--line)}
 section.first{border-top:0}
@@ -193,8 +215,9 @@ footer a{color:var(--muted2)}
 <img class="wm" src="/wordmark.png" alt="MoatLens — Clarity. Quality. Compounding." width="420">
 <div><span class="kicker">Android · UE y RU · gratis para empezar</span></div>
 <h1>Entender las acciones,<br>en vez de perseguir cotizaciones.</h1>
-<p class="lead">MoatLens es una app de <strong>análisis de acciones y análisis fundamental</strong>: diez años de cifras del negocio en el tiempo, cada indicador explicado en lenguaje sencillo e informes anuales resumidos con claridad. Sin señales de compra, sin alertas de pánico, sin hype.</p>
+<p class="lead">Diez años de cifras del negocio, explicadas en lenguaje sencillo — para poder valorar una empresa sin leerte cientos de páginas de informe anual. MoatLens es una app de <strong>análisis de acciones y análisis fundamental</strong>: cada indicador explicado, informes anuales resumidos con claridad. Sin señales de compra, sin alertas de pánico, sin hype.</p>
 <div class="cta-row"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=hero" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Ver en Google Play</span></a><a class="btn btn-silver" href="/es/anleitung.html"><span>Cómo usarla</span></a></div>
+<ul class="trust"><li>Sin señales de compra o venta</li><li>Diez años, no una foto fija</li><li>Desarrollado en Alemania</li></ul>
 <p class="cta-note">Gratis para empezar · sin conexión con el bróker · datos con licencia de Financial Modeling Prep</p>
 </div></div><section class="first"><div class="wrap">
 <span class="label">Qué hace la app</span><h2 style="margin-top:.4em">Primero entender el negocio. Después, todo lo demás.</h2>
