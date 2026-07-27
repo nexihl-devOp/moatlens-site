@@ -95,9 +95,10 @@ box-shadow:0 2px 14px rgba(212,175,55,.05)}
 /* Screenshot-Galerie */
 .rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory}
 .rail::-webkit-scrollbar{height:6px}.rail::-webkit-scrollbar-thumb{background:var(--gold-border-mid);border-radius:99px}
-.rail figure{margin:0;flex:0 0 300px;scroll-snap-align:center}
-@media(max-width:560px){.rail figure{flex:0 0 78vw}}
-.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);width:100%;background:#000}
+.rail figure{margin:0;flex:0 0 auto;scroll-snap-align:center}
+.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
+height:min(58vh,560px);width:auto;max-width:none}
+@media(max-width:560px){.rail img{height:auto;width:76vw}}
 .rail figcaption{font-size:.86rem;color:var(--muted2);margin-top:12px;text-align:center}
 .lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none;
 align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
@@ -160,7 +161,8 @@ footer a{color:var(--muted2)}
 <span class="langs"><a class="" href="/l-kgv.html" hreflang="de" title="Deutsch">de</a><a class="on" href="/en/l-kgv.html" hreflang="en" title="English">en</a><a class="" href="/fr/l-kgv.html" hreflang="fr" title="Français">fr</a><a class="" href="/es/l-kgv.html" hreflang="es" title="Español">es</a></span>
 <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=nav" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Get the app</span></a>
 </nav></div></header><div class="pagehead"><div class="wrap narrow">
-<a href="/en/lexikon.html" class="small">← Back to the glossary</a>
+<a href="/en/lexikon.html" class="small back"
+   onclick="if(document.referrer&amp;&amp;history.length>1){history.back();return false}">← Back</a>
 <h1 style="margin-top:.4em">Price-Earnings Ratio (P/E)</h1></div></div>
 <section class="first"><div class="wrap narrow"><p>Imagine buying the whole company: the P/E says how many years of current profit you pay for at today's price. P/E 20 ≈ 20 years of today's earnings until the purchase price has, on paper, earned itself back.</p>
 <p>Rule of thumb:</p>
@@ -170,7 +172,9 @@ footer a{color:var(--muted2)}
 <p>In MoatLens this explanation sits right next to the number — one tap away. And you see the ten-year trend instead of a single value.</p>
 <div style="margin-top:18px"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=lexikon" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>View on Google Play</span></a></div></div>
 <h2 style="margin-top:44px;font-size:1.2rem">More terms</h2>
-<div class="termlist"><a href="/en/l-roe.html"><strong>Return on Equity (ROE)</strong></a><a href="/en/l-freier-cashflow.html"><strong>Free Cash Flow</strong></a><a href="/en/l-nettomarge.html"><strong>Net Margin</strong></a><a href="/en/l-verschuldung.html"><strong>Debt load (Net debt / EBITDA)</strong></a><a href="/en/l-dividendenrendite.html"><strong>Dividend Yield</strong></a><a href="/en/l-roic.html"><strong>Return on invested capital (ROIC)</strong></a></div></div></section><footer><div class="wrap">
+<div class="termlist"><a href="/en/l-kbv.html"><strong>Price-to-Book Ratio (P/B)</strong></a><a href="/en/l-roe.html"><strong>Return on Equity (ROE)</strong></a><a href="/en/l-verschuldung.html"><strong>Debt load (Net debt / EBITDA)</strong></a><a href="/en/l-nettomarge.html"><strong>Net Margin</strong></a><a href="/en/l-dividendenrendite.html"><strong>Dividend Yield</strong></a><a href="/en/l-umsatzwachstum.html"><strong>Revenue Growth</strong></a></div>
+<p style="margin-top:22px"><a href="/en/lexikon.html">All terms in the glossary →</a></p>
+</div></section><footer><div class="wrap">
 <img src="/wordmark.png" alt="MoatLens" style="width:190px;margin-bottom:22px;opacity:.9">
 <div class="flinks">
 <a href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=footer" rel="noopener">Google Play</a>
