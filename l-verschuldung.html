@@ -125,6 +125,10 @@ details .ans{padding-bottom:19px;color:var(--muted2);margin:0;font-size:.97rem}
 .step{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px}
 .step h3{color:var(--gold-txt)}
 .tipbox{border-left:2px solid var(--gold-border-mid);padding-left:14px;color:var(--muted2)}
+/* Glossar-Begriff im Fliesstext — dezent, wie in der App */
+a.gloss{color:inherit;text-decoration:none;border-bottom:1px dotted var(--gold-border-mid);
+padding-bottom:1px}
+a.gloss:hover{color:var(--gold-txt);border-bottom-color:var(--gold);text-decoration:none}
 .tip{color:var(--gold-txt)}
 .termlist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 @media(max-width:700px){.termlist{grid-template-columns:1fr}}
@@ -158,10 +162,10 @@ footer a{color:var(--muted2)}
 </nav></div></header><div class="pagehead"><div class="wrap narrow">
 <a href="/lexikon.html" class="small">← Zurück zum Lexikon</a>
 <h1 style="margin-top:.4em">Verschuldung (Schulden / EBITDA)</h1></div></div>
-<section class="first"><div class="wrap narrow"><p>Zeigt, wie viele Jahre operativer Gewinn (EBITDA) nötig wären, um die Netto-Schulden zu tilgen. 2 bedeutet: rund zwei Jahresgewinne. Niedrig = die Firma kann ihre Schulden locker stemmen.</p>
+<section class="first"><div class="wrap narrow"><p>Zeigt, wie viele Jahre operativer Gewinn (<a class="gloss" href="/l-ebitda.html">EBITDA</a>) nötig wären, um die Netto-Schulden zu tilgen. 2 bedeutet: rund zwei Jahresgewinne. Niedrig = die Firma kann ihre Schulden locker stemmen.</p>
 <p>Faustregel:</p>
 <ul class="clean"><li>Unter 1: sehr solide (oder sogar mehr Cash als Schulden)</li><li>1–3: gesunder Normalbereich</li><li>Über 4: hohe Last, anfällig wenn das Geschäft schwächelt</li></ul>
-<p class="tipbox"><strong class="tip">MoatLens-Tipp:</strong> Diese Kennzahl misst echte Schuldenlast besser als ein simpler Schulden-zu-Eigenkapital-Vergleich, weil Aktienrückkäufe sie nicht verzerren. Hat eine Firma mehr Bargeld als Schulden, ist der Wert sogar negativ – ein Zeichen großer Stärke. Wichtige Ausnahmen: Versorger, Immobilienfirmen und Banken arbeiten von Natur aus mit viel Fremdkapital – vergleiche sie nur mit Firmen aus derselben Branche.</p>
+<p class="tipbox"><strong class="tip">MoatLens-Tipp:</strong> Diese Kennzahl misst echte Schuldenlast besser als ein simpler Schulden-zu-Eigenkapital-Vergleich, weil <a class="gloss" href="/l-aktienrueckkauf.html">Aktienrückkäufe</a> sie nicht verzerren. Hat eine Firma mehr Bargeld als Schulden, ist der Wert sogar negativ – ein Zeichen großer Stärke. Wichtige Ausnahmen: Versorger, Immobilienfirmen und Banken arbeiten von Natur aus mit viel Fremdkapital – vergleiche sie nur mit Firmen aus derselben Branche.</p>
 <div class="card" style="margin-top:32px"><h3>So siehst du das in MoatLens</h3>
 <p>In MoatLens steht diese Erklärung direkt neben der Zahl — antippen genügt. Dazu siehst du den Verlauf über zehn Jahre statt eines einzelnen Werts.</p>
 <div style="margin-top:18px"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=lexikon" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Im Play Store ansehen</span></a></div></div>
