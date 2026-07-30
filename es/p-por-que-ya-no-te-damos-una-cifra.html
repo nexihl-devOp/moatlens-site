@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Por qué ya no te damos una cifra — y te dejamos calcular a ti | MoatLens</title>
+<meta name="description" content="MoatLens mostraba un valor de empresa calculado. Lo eliminamos. En su lugar vuelve un rango de valor que generas tú mismo.">
+<link rel="canonical" href="https://moatlens.app/es/p-por-que-ya-no-te-damos-una-cifra.html">
+<link rel="alternate" hreflang="de" href="https://moatlens.app/p-warum-wir-dir-keinen-wert-vorgeben.html">
+<link rel="alternate" hreflang="en" href="https://moatlens.app/en/p-why-we-no-longer-hand-you-a-number.html">
+<link rel="alternate" hreflang="fr" href="https://moatlens.app/fr/p-pourquoi-nous-ne-vous-donnons-plus-de-chiffre.html">
+<link rel="alternate" hreflang="es" href="https://moatlens.app/es/p-por-que-ya-no-te-damos-una-cifra.html">
+<link rel="alternate" hreflang="x-default" href="https://moatlens.app/p-warum-wir-dir-keinen-wert-vorgeben.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0B0F14">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MoatLens">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Por qué ya no te damos una cifra — y te dejamos calcular a ti | MoatLens">
+<meta property="og:description" content="MoatLens mostraba un valor de empresa calculado. Lo eliminamos. En su lugar vuelve un rango de valor que generas tú mismo.">
+<meta property="og:url" content="https://moatlens.app/es/p-por-que-ya-no-te-damos-una-cifra.html">
+<meta property="og:image" content="https://moatlens.app/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://moatlens.app/og.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/crest.png">
+<style>
+:root{--bg:#0B0F14;--surface:#121821;--card:#06090E;--gold:#D4AF37;--gold-soft:#E6C768;
+--gold-txt:#EDBA49;--gold-border:rgba(212,175,55,.15);--gold-border-mid:rgba(212,175,55,.30);
+--gold-bg:rgba(212,175,55,.06);--tx:#F5F2EA;--muted2:rgba(245,242,234,.65);--muted:rgba(245,242,234,.45);
+--line:rgba(255,255,255,.06);--r:22px;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--gold);text-decoration:none}a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+.narrow{max-width:760px}
+h1,h2,h3{line-height:1.22;letter-spacing:-.015em;margin:0 0 .5em;font-weight:600}
+h1{font-size:clamp(1.9rem,4.6vw,3rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.35rem,3vw,1.95rem)}h3{font-size:1.06rem;margin-bottom:.35em}
+p{margin:0 0 1em}.muted{color:var(--muted2)}.small{font-size:.9rem}
+.label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+header{position:sticky;top:0;z-index:30;backdrop-filter:blur(16px);background:rgba(11,15,20,.85);border-bottom:1px solid var(--line)}
+/* Kopfzeile: eine Reihe auf dem Desktop, zwei Reihen auf dem Handy.
+   Wichtig: KEINE feste Höhe — sonst wird die zweite Reihe abgeschnitten. */
+.nav{display:flex;align-items:center;gap:14px;min-height:64px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto;order:1}
+.brand img.crest{width:28px;height:28px}.brand img.wm{height:19px;width:auto}
+.navlinks{display:flex;gap:20px;align-items:center;order:2;margin-left:auto}
+.navlinks a{color:var(--muted2);font-size:.93rem;white-space:nowrap}
+.navlinks a:hover,.navlinks a[aria-current]{color:var(--tx);text-decoration:none}
+.nav>.langs{order:3}
+.nav>.btn{order:4}
+@media(max-width:900px){
+  /* nur oben/unten — .nav ist zugleich .wrap und braucht dessen Seitenabstand */
+  .nav{padding-top:9px;padding-bottom:9px;min-height:0;row-gap:8px}
+  .nav>.langs{order:2;margin-left:auto}
+  .nav>.btn{order:3}
+  /* Die Menüpunkte bekommen eine eigene, waagerecht scrollbare Reihe —
+     so bleiben sie auf jedem Gerät erreichbar, statt ausgeblendet zu werden. */
+  .navlinks{order:5;width:100%;margin-left:0;justify-content:center;gap:22px;
+            overflow-x:auto;-webkit-overflow-scrolling:touch;
+            scrollbar-width:none;padding-bottom:2px}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{font-size:.95rem;padding:2px 0}
+  .navlinks a[aria-current]{border-bottom:2px solid var(--gold-border-mid)}
+}
+@media(max-width:480px){
+  /* Schmales Handy: Reihe 1 Logo + Sprachen + App-Button, Reihe 2 das Menü über
+     die volle Breite. Alles wird kompakter, damit Reihe 1 nicht umbricht und das
+     Menü ohne Wischen vollständig sichtbar bleibt. */
+  .brand img.wm{display:none}
+  .nav{gap:8px}
+  .nav>.langs{gap:3px}
+  .langs a{font-size:.7rem;padding:3px 4px}
+  .btn-sm>span{min-height:38px;padding:0 12px;font-size:.85rem}
+  .navlinks{gap:18px}
+}
+/* ── App-Button: schwarzer Korpus, metallischer Goldring (GoldGradientButton) ── */
+.btn{display:inline-block;padding:2px;border-radius:14px;
+background:linear-gradient(135deg,#FAD868 0%,#E0A836 25%,#85500C 50%,#C9922C 75%,#F3C450 100%);
+box-shadow:0 3px 7px rgba(0,0,0,.38);text-decoration:none!important}
+.btn>span{display:flex;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden;
+min-height:52px;padding:0 24px;border-radius:12px;color:var(--gold-txt);font-weight:700;letter-spacing:.2px;
+font-size:1rem;background:linear-gradient(180deg,#20242B 0%,#12151A 55%,#0A0C10 100%)}
+.btn>span::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;pointer-events:none;
+background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0))}
+.btn:hover>span{color:#F6CE63}
+.btn-sm>span{min-height:40px;padding:0 16px;font-size:.9rem;border-radius:10px}
+.btn-sm{border-radius:12px;box-shadow:none}
+.btn-silver{background:linear-gradient(135deg,#EDEFF2,#AEB3BC,#5A5E66,#AEB3BC,#E6E8EC)}
+.btn-silver>span{color:#EDEFF2}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
+/* Sprachumschalter */
+.langs{display:flex;gap:6px;align-items:center;margin-left:4px}
+.langs a{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+border:1px solid var(--line);border-radius:8px;padding:4px 8px}
+.langs a:hover{color:var(--tx);border-color:var(--gold-border-mid);text-decoration:none}
+.langs a.on{color:var(--gold-txt);border-color:var(--gold-border-mid);background:var(--gold-bg)}
+.langs a.na{opacity:.42}.langs a.na:hover{opacity:.7}
+/* Warteliste-Formular */
+.picks{border:0;padding:0;margin:0 0 26px;display:flex;flex-wrap:wrap;gap:10px}
+.picks legend{padding:0;margin-bottom:12px}
+.pick{position:relative;cursor:pointer}
+.pick input{position:absolute;opacity:0;width:0;height:0}
+.pick span{display:inline-block;padding:10px 18px;border-radius:999px;font-size:.95rem;
+color:var(--muted2);border:1px solid var(--line);background:var(--card)}
+.pick input:checked+span{color:var(--gold-txt);border-color:var(--gold-border-mid);background:var(--gold-bg)}
+.pick input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.flabel{display:block;font-size:.9rem;color:var(--muted2);margin-bottom:8px}
+#wl input[type=email]{width:100%;max-width:420px;background:var(--card);color:var(--tx);
+border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:1rem;font-family:inherit}
+#wl input[type=email]:focus{outline:none;border-color:var(--gold-border-mid);
+box-shadow:0 0 0 3px rgba(212,175,55,.14)}
+.consent{display:flex;gap:11px;align-items:flex-start;margin:20px 0 6px;max-width:44em;
+font-size:.92rem;color:var(--muted2);cursor:pointer}
+.consent input{margin-top:4px;flex:0 0 auto;accent-color:var(--gold)}
+.err{color:#E58A8A;font-size:.9rem;min-height:1.2em;margin:6px 0 14px}
+#wl button[disabled]{opacity:.6}
+/* Faktentabelle Presse */
+table.facts{width:100%;border-collapse:collapse;margin-top:14px}
+table.facts th,table.facts td{text-align:left;vertical-align:top;padding:12px 0;
+border-bottom:1px solid var(--line);font-weight:400}
+table.facts th{color:var(--muted);width:38%;padding-right:18px;font-size:.92rem}
+table.facts td{color:var(--muted2)}
+@media(max-width:520px){table.facts th,table.facts td{display:block;width:auto;
+border-bottom:0;padding:2px 0}table.facts td{padding-bottom:14px;border-bottom:1px solid var(--line)}}
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:84px 0 62px;text-align:center;
+background:#06090E url('/hero-bg.jpg') center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;
+background:linear-gradient(180deg,rgba(6,9,14,.55),rgba(11,15,20,.75) 55%,var(--bg))}
+.hero-in{position:relative;z-index:2;max-width:820px;margin:0 auto}
+.hero .wm{width:min(420px,76vw);margin:0 auto 24px}
+.kicker{display:inline-block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+border:1px solid var(--gold-border-mid);border-radius:100px;padding:6px 16px;margin-bottom:22px;background:rgba(6,9,14,.5)}
+.lead{font-size:1.12rem;color:var(--muted2);max-width:38em;margin:0 auto 1em}
+.cta-note{font-size:.86rem;color:var(--muted);margin-top:18px}
+/* Vertrauenszeile unter den Hero-Buttons */
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin:22px auto 0;max-width:58em;
+list-style:none;padding:0;font-size:.9rem;color:var(--muted2)}
+.trust li{display:flex;align-items:center;gap:8px}
+.trust li::before{content:"✓";flex:0 0 auto;color:var(--gold);font-weight:700;font-size:.86rem;
+line-height:1;width:20px;height:20px;display:flex;align-items:center;justify-content:center;
+border-radius:50%;border:1px solid var(--gold-border-mid);background:var(--gold-bg)}
+@media(max-width:560px){.trust{gap:8px 0;flex-direction:column;align-items:flex-start;
+max-width:22em;text-align:left}}
+/* Auf dem Handy wird der Hero kompakter, damit die Vertrauenszeile nicht unter
+   den ersten Bildschirm rutscht. */
+@media(max-width:700px){
+  /* Auf dem Handy steht die Vertrauenszeile VOR den Buttons — sonst rutscht sie
+     unter den ersten Bildschirm. Der Kopfzeilen-Button bleibt ohnehin sichtbar. */
+  .hero-in{display:flex;flex-direction:column}
+  .trust{order:1;margin-top:20px}.cta-row{order:2;margin-top:22px}.cta-note{order:3}
+  .hero{padding:44px 0 46px}
+  .hero .wm{width:min(300px,62vw);margin-bottom:18px}
+  .kicker{margin-bottom:16px;padding:5px 13px}
+  .lead{font-size:1.04rem}
+  .cta-note{margin-top:14px}
+}
+.pagehead{padding:64px 0 8px;background:radial-gradient(ellipse at 50% -20%,rgba(212,175,55,.10),transparent 60%)}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section.first{border-top:0}
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.g3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--r);padding:24px;
+box-shadow:0 2px 14px rgba(212,175,55,.05)}
+.card p{margin:0;color:var(--muted2);font-size:.96rem}
+.card p+p{margin-top:.8em}
+.ico{width:32px;height:32px;margin-bottom:14px;color:var(--gold)}
+/* Screenshot-Galerie */
+.rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory}
+.rail::-webkit-scrollbar{height:6px}.rail::-webkit-scrollbar-thumb{background:var(--gold-border-mid);border-radius:99px}
+.rail figure{margin:0;flex:0 0 auto;scroll-snap-align:center}
+.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
+height:min(58vh,560px);width:auto;max-width:none}
+@media(max-width:560px){.rail img{height:auto;width:76vw}}
+.rail figcaption{font-size:.86rem;color:var(--muted2);margin-top:12px;text-align:center}
+.lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none;
+align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
+.lightbox:target{display:flex}
+.lightbox img{max-height:86vh;width:auto;border-radius:18px;border:1px solid var(--gold-border-mid)}
+.lightbox a.x{color:var(--gold-txt);font-size:.9rem}
+ul.clean{list-style:none;padding:0;margin:0 0 1em}
+ul.clean li{padding:9px 0 9px 26px;position:relative;color:var(--muted2);border-bottom:1px solid var(--line);font-size:.96rem}
+ul.clean li:last-child{border-bottom:0}
+ul.clean li::before{content:"›";position:absolute;left:5px;color:var(--gold);font-weight:700}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.no h3{color:#E8B4B4}.yes h3{color:var(--gold)}
+details{background:var(--card);border:1px solid var(--gold-border);border-radius:16px;padding:0 22px;margin-bottom:11px}
+details summary{cursor:pointer;padding:18px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:14px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--gold);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details .ans{padding-bottom:19px;color:var(--muted2);margin:0;font-size:.97rem}
+.band{text-align:center;position:relative;overflow:hidden;background:#06090E url('/goldwave.jpg') center/cover no-repeat}
+.band::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(6,9,14,.72),rgba(6,9,14,.94) 70%)}
+.band .wrap{position:relative;z-index:2}
+.quote{font-size:1.22rem;font-style:italic;max-width:26em;margin:0 auto}
+.steps{counter-reset:s}
+.step{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--r);padding:22px 24px;margin-bottom:14px}
+.step h3{color:var(--gold-txt)}
+.tipbox{border-left:2px solid var(--gold-border-mid);padding-left:14px;color:var(--muted2)}
+/* Glossar-Begriff im Fliesstext — dezent, wie in der App */
+a.gloss{color:inherit;text-decoration:none;border-bottom:1px dotted var(--gold-border-mid);
+padding-bottom:1px}
+a.gloss:hover{color:var(--gold-txt);border-bottom-color:var(--gold);text-decoration:none}
+.tip{color:var(--gold-txt)}
+.termlist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:700px){.termlist{grid-template-columns:1fr}}
+.termlist a{display:block;background:var(--card);border:1px solid var(--gold-border);border-radius:16px;padding:18px 20px}
+.termlist a:hover{border-color:var(--gold-border-mid);text-decoration:none}
+.termlist strong{color:var(--tx);display:block;font-size:1rem}
+.termlist span{color:var(--muted);font-size:.88rem}
+.postlist a{display:block;background:var(--card);border:1px solid var(--gold-border);border-radius:16px;padding:22px 24px;margin-bottom:14px}
+.postlist a:hover{border-color:var(--gold-border-mid);text-decoration:none}
+.postlist strong{color:var(--tx);display:block;font-size:1.1rem;margin-bottom:.3em}
+.postlist span{color:var(--muted2);font-size:.94rem}
+.date{color:var(--muted);font-size:.82rem;letter-spacing:.04em}
+article.post p{color:var(--muted2)}
+article.post p:first-of-type{color:var(--tx);font-size:1.08rem}
+footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:.88rem}
+footer a{color:var(--muted2)}
+.flinks{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:22px}
+.disc{border:1px solid var(--gold-border);border-radius:16px;padding:17px 19px;background:var(--card);line-height:1.55}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Por qué ya no te damos una cifra — y te dejamos calcular a ti", "datePublished": "2026-07-30", "description": "MoatLens mostraba un valor de empresa calculado. Lo eliminamos. En su lugar vuelve un rango de valor que generas tú mismo.", "inLanguage": "es", "author": {"@type": "Person", "name": "Tim Treis"}, "publisher": {"@type": "Organization", "name": "MoatLens"}, "mainEntityOfPage": "https://moatlens.app/es/p-por-que-ya-no-te-damos-una-cifra.html"}</script>
+</head>
+<body><header><div class="wrap nav">
+<a class="brand" href="/es/"><img class="crest" src="/crest.png" alt="MoatLens" width="28" height="28"><img class="wm" src="/wordmark.png" alt="MoatLens"></a>
+<nav class="navlinks">
+<a href="/es/index.html">Inicio</a>
+<a href="/es/lexikon.html">Glosario</a>
+<a href="/es/anleitung.html">Cómo usarla</a>
+<a href="/es/magazin.html" aria-current="page">Revista</a>
+</nav>
+<span class="langs"><a class="" href="/p-warum-wir-dir-keinen-wert-vorgeben.html" hreflang="de" title="Deutsch">de</a><a class="" href="/en/p-why-we-no-longer-hand-you-a-number.html" hreflang="en" title="English">en</a><a class="" href="/fr/p-pourquoi-nous-ne-vous-donnons-plus-de-chiffre.html" hreflang="fr" title="Français">fr</a><a class="on" href="/es/p-por-que-ya-no-te-damos-una-cifra.html" hreflang="es" title="Español">es</a></span>
+<a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=nav" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Descargar</span></a>
+</div></header><div class="pagehead"><div class="wrap narrow">
+<a href="/es/magazin.html" class="small back"
+   onclick="if(document.referrer&amp;&amp;history.length>1){history.back();return false}">← Volver</a>
+<span class="date" style="display:block;margin-top:18px">2026-07-30</span>
+<h1 style="margin-top:.3em">Por qué ya no te damos una cifra — y te dejamos calcular a ti</h1></div></div>
+<section class="first"><div class="wrap narrow"><article class="post"><p>Hubo un tiempo en que MoatLens mostraba una cifra: un valor calculado por acción, bien redondeado, con dos decimales. Parecía el resultado de una medición. No lo era. La eliminamos — y ahora la sustituimos por algo que funciona de otra manera.</p><p>Una aplicación que emite un valor de empresa actúa como si conociera el futuro. No lo conoce. Lo que conoce son datos del pasado y un modelo que alguien alimentó con supuestos. Los supuestos deciden el resultado — y son justamente los que el usuario nunca ve.</p><p>En nuestro caso se sumó todo lo que suele salir mal en esos cálculos: un tope que recortaba en silencio los supuestos de crecimiento y aun así presentaba el resultado como un valor. Un punto en el que el <a class="gloss" href="/es/l-umsatzwachstum.html">crecimiento de ingresos</a> y el <a class="gloss" href="/es/l-gewinnwachstum.html">crecimiento del beneficio</a> entraban en la misma fórmula aunque son dos magnitudes distintas. Cotizaciones secundarias en las que la cotización y el balance se llevan en monedas diferentes. Cada error pequeño por sí solo — juntos daban cifras que nadie podía defender. Así que desconectamos la función en lugar de remendarla.</p><p>La nueva función se llama «Tu rango de valor» y está en la vista de la acción, marcada visiblemente como beta. Ajustas cuatro supuestos: cuánto <a class="gloss" href="/es/l-freier-cashflow.html">dinero libremente disponible</a> por acción genera la empresa al año, con qué fuerza debe crecer eso durante diez años, qué rentabilidad exiges como mínimo por el dinero que pones, y qué queda de forma duradera después. MoatLens te propone valores iniciales procedentes de las cifras publicadas de esa empresa e indica en cada línea de dónde vienen. Puedes cambiarlos todos.</p><p>No sale una cifra, sino un rango: un extremo prudente, uno intermedio y uno optimista. Eso no es un defecto, es la afirmación misma. Quien da una cifra única reclama una precisión que una estimación no tiene.</p><p>Debajo de cada control se explica qué provoca — en tus propias cifras, no en abstracto. Al lado figura cuánto pesa ese supuesto en comparación con los demás. En la mayoría de las empresas es la rentabilidad exigida la que más mueve el resultado, muy por delante del flujo de caja y del crecimiento.</p><p>Míralo de cerca. La rentabilidad exigida es el único de los cuatro supuestos para el que no hay nada que consultar. En el flujo de caja y en el crecimiento está debajo la historia de la empresa. Bajo el descuento dice: para esto no hay nada que consultar — este valor es pura expectativa. La tuya. Y es justamente la que más mueve el resultado.</p><p>Esa es la verdad incómoda de toda <a class="gloss" href="/es/l-bewertung.html">valoración de empresas</a>, y con nosotros está ahora visible en la pantalla en lugar de en la letra pequeña: la cifra es en gran parte tu propia expectativa. Quien lo sabe la trata como una referencia. Quien no lo sabe la toma por un diagnóstico.</p><p>Tres cosas que esto puede y una cifra dada no. Es trazable: cada fórmula está abierta, cada valor inicial nombra su fuente, y puedes contradecir un resultado cambiando el supuesto con el que no estás de acuerdo. Recoge tu conocimiento: si conoces un sector y sabes que el último año fue atípico, puedes incorporarlo. Y gana valor con el tiempo: solo se guardan tus supuestos, nunca el resultado. Dentro de un año podrás releer qué supusiste entonces y ver qué se cumplió. Es la única respuesta que puede recibir una estimación de valor — y te hace mejor la próxima vez.</p><p>Los inversores con experiencia hacen ese cálculo aproximado de todos modos antes de tomarse en serio una empresa — casi siempre en papel, en unos minutos, con supuestos gruesos. No construimos un sustituto de eso. Construimos el papel.</p><p>Lo que la función no hace: no emite ningún juicio sobre la cotización. Ni semáforo, ni escala de colores, ni distancia porcentual al precio, ni recomendación de compra o venta. Pone tu rango y la última cotización uno junto al otro y describe dónde se sitúa esta — nada más. La conclusión la sacas tú.</p><p>Y donde los datos no sostienen, no calcula. En una empresa en fase de pérdidas los campos quedan vacíos y explican por qué. En una cotización secundaria con monedas mezcladas la función ni siquiera aparece. Mejor ninguna cifra que una en la que no se puede confiar — esa fue la razón para retirar el valor antiguo, y sigue siendo el criterio.</p><p>La función es nueva y lleva una marca beta. Puede cambiar, y seguimos aprendiendo de ella. Si algo te resulta confuso, erróneo o engorroso: escríbenos. Justo para eso sale primero como beta.</p></article>
+<div style="margin-top:36px"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=journal" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Ver en Google Play</span></a></div></div></section><footer><div class="wrap">
+<img src="/wordmark.png" alt="MoatLens" style="width:190px;margin-bottom:22px;opacity:.9">
+<div class="flinks">
+<a href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=footer" rel="noopener">Google Play</a>
+<a href="/es/warteliste.html">Lista de espera</a>
+<a href="/es/presse.html">Prensa y creadores</a>
+<a href="https://nexihl-devop.github.io/moatlens-legal/">Aviso legal</a><a href="https://nexihl-devop.github.io/moatlens-legal/">Privacidad</a><a href="https://nexihl-devop.github.io/moatlens-legal/">Términos</a>
+<a href="mailto:support@moatlens.app">support@moatlens.app</a></div>
+<div class="disc"><strong style="color:var(--muted2)">Aviso importante:</strong> MoatLens no es asesoramiento de inversión y no da recomendaciones de compra o venta. Todo el contenido tiene fines informativos y formativos. Invertir conlleva riesgos, incluida la pérdida total del capital. Las empresas y cifras mostradas son ejemplos, no recomendaciones. La evolución pasada no permite conclusiones sobre el futuro.</div>
+<p style="margin-top:24px">© 2026 MoatLens · Clarity. Quality. Compounding.</p>
+</div></footer></body></html>
