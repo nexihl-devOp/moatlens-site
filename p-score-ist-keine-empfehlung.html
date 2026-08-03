@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Warum unser Score keine Kaufempfehlung ist — und nie eine sein wird | MoatLens</title>
+<title>Warum unser Score keine Empfehlung ist — und nie eine sein wird | MoatLens</title>
 <meta name="description" content="Ein Qualitäts-Score beschreibt ein Geschäft. Über den Preis sagt er nichts.">
 <link rel="canonical" href="https://moatlens.app/p-score-ist-keine-empfehlung.html">
 <link rel="alternate" hreflang="de" href="https://moatlens.app/p-score-ist-keine-empfehlung.html">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MoatLens">
 <meta property="og:locale" content="de_DE">
-<meta property="og:title" content="Warum unser Score keine Kaufempfehlung ist — und nie eine sein wird | MoatLens">
+<meta property="og:title" content="Warum unser Score keine Empfehlung ist — und nie eine sein wird | MoatLens">
 <meta property="og:description" content="Ein Qualitäts-Score beschreibt ein Geschäft. Über den Preis sagt er nichts.">
 <meta property="og:url" content="https://moatlens.app/p-score-ist-keine-empfehlung.html">
 <meta property="og:image" content="https://moatlens.app/og.jpg">
@@ -162,8 +162,8 @@ max-width:22em;text-align:left}}
 .pagehead{padding:64px 0 8px;background:radial-gradient(ellipse at 50% -20%,rgba(212,175,55,.10),transparent 60%)}
 section{padding:60px 0;border-top:1px solid var(--line)}
 section.first{border-top:0}
-.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}@media(max-width:640px){.g2{grid-template-columns:1fr}}
 @media(max-width:640px){.g3{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--r);padding:24px;
 box-shadow:0 2px 14px rgba(212,175,55,.05)}
@@ -171,18 +171,42 @@ box-shadow:0 2px 14px rgba(212,175,55,.05)}
 .card p+p{margin-top:.8em}
 .ico{width:32px;height:32px;margin-bottom:14px;color:var(--gold)}
 /* Screenshot-Galerie */
-.rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory}
+.rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory;align-items:stretch}
 .rail::-webkit-scrollbar{height:6px}.rail::-webkit-scrollbar-thumb{background:var(--gold-border-mid);border-radius:99px}
-.rail figure{margin:0;flex:0 0 auto;scroll-snap-align:center}
-.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
-height:min(58vh,560px);width:auto;max-width:none}
-@media(max-width:560px){.rail img{height:auto;width:76vw}}
-.rail figcaption{font-size:.86rem;color:var(--muted2);margin-top:12px;text-align:center}
-.lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none;
-align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
-.lightbox:target{display:flex}
-.lightbox img{max-height:86vh;width:auto;border-radius:18px;border:1px solid var(--gold-border-mid)}
-.lightbox a.x{color:var(--gold-txt);font-size:.9rem}
+/* Feste Spaltenbreite. Ohne sie bestimmt die laengste Bildunterschrift die Breite der
+   Kachel — und die Abstaende zwischen den Bildern fielen je Sprache anders aus. */
+.rail figure{--w:calc(min(58vh,560px) * .4927);margin:0;flex:0 0 var(--w);width:var(--w);
+scroll-snap-align:center;display:flex;flex-direction:column}
+.rail figure>a{display:block}
+.rail img{display:block;border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
+width:100%;height:auto;max-width:none}
+@media(max-width:560px){.rail figure{--w:76vw}}
+/* Die Unterschrift sitzt in einer Karte und bricht um. flex:1 laesst alle Karten
+   einer Reihe gleich hoch werden, egal wie lang der Text ist. */
+.rail figcaption{font-size:.86rem;line-height:1.45;color:var(--muted2);margin-top:12px;text-align:center;
+background:var(--card);border:1px solid var(--gold-border);border-radius:14px;padding:13px 15px;
+flex:1;display:flex;align-items:center;justify-content:center}
+/* Vergroesserte Ansicht: Pfeile links/rechts, Wischen auf dem Telefon.
+   Ohne JavaScript bleiben die Pfeile normale Anker und funktionieren trotzdem. */
+.lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none}
+.lightbox:target{display:grid;grid-template-columns:64px minmax(0,1fr) 64px;
+grid-template-rows:minmax(0,1fr) auto;align-items:center;justify-items:center;
+gap:12px;padding:22px;touch-action:pan-y}
+.lb-fig{grid-column:2;grid-row:1;margin:0;display:flex;flex-direction:column;
+align-items:center;gap:13px;max-height:100%}
+.lightbox img{max-height:76vh;max-width:100%;width:auto;border-radius:18px;
+border:1px solid var(--gold-border-mid)}
+.lb-fig figcaption{font-size:.9rem;color:var(--muted2);text-align:center;max-width:34em}
+.lb-count{color:var(--muted);margin-left:.5em;white-space:nowrap}
+.lb-nav{grid-row:1;display:flex;align-items:center;justify-content:center;
+width:52px;height:52px;border-radius:50%;border:1px solid var(--gold-border-mid);
+background:var(--card);color:var(--gold-txt);font-size:1.9rem;line-height:1;
+text-decoration:none;-webkit-user-select:none;user-select:none}
+.lb-nav:hover{border-color:var(--gold);color:var(--gold);text-decoration:none}
+.lb-prev{grid-column:1}.lb-next{grid-column:3}
+.lightbox a.x{grid-column:1/-1;grid-row:2;color:var(--gold-txt);font-size:.9rem}
+@media(max-width:640px){.lightbox:target{grid-template-columns:44px minmax(0,1fr) 44px;padding:12px}
+.lb-nav{width:40px;height:40px;font-size:1.5rem}.lightbox img{max-height:64vh}}
 ul.clean{list-style:none;padding:0;margin:0 0 1em}
 ul.clean li{padding:9px 0 9px 26px;position:relative;color:var(--muted2);border-bottom:1px solid var(--line);font-size:.96rem}
 ul.clean li:last-child{border-bottom:0}
@@ -222,12 +246,28 @@ a.gloss:hover{color:var(--gold-txt);border-bottom-color:var(--gold);text-decorat
 .date{color:var(--muted);font-size:.82rem;letter-spacing:.04em}
 article.post p{color:var(--muted2)}
 article.post p:first-of-type{color:var(--tx);font-size:1.08rem}
+article.post h2{font-size:1.42rem;margin:2.1em 0 .55em;line-height:1.3}
+article.post h2:first-child{margin-top:0}
+article.post ul.plist{list-style:none;padding:0;margin:1.1em 0}
+article.post ul.plist li{color:var(--muted2);position:relative;padding-left:26px;margin-bottom:11px}
+article.post ul.plist li::before{content:"";position:absolute;left:6px;top:.62em;width:6px;height:6px;
+border-radius:50%;background:var(--gold-border-mid)}
+article.post .pull{border-left:2px solid var(--gold-border-mid);padding:2px 0 2px 18px;margin:1.6em 0;
+color:var(--tx);font-size:1.06rem}
+article.post .faq{margin-top:14px}
+article.post .faq h3{font-size:1.05rem;margin:1.5em 0 .35em;color:var(--tx)}
 footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:.88rem}
 footer a{color:var(--muted2)}
 .flinks{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:22px}
+.flinks.social{gap:16px;margin-bottom:24px}
+.flinks.social a{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;
+border:1px solid var(--gold-border);border-radius:99px;background:var(--card);
+color:var(--muted2);font-size:.86rem}
+.flinks.social a:hover{border-color:var(--gold-border-mid);color:var(--gold-txt);text-decoration:none}
+.flinks.social svg{width:15px;height:15px;flex:0 0 auto}
 .disc{border:1px solid var(--gold-border);border-radius:16px;padding:17px 19px;background:var(--card);line-height:1.55}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Warum unser Score keine Kaufempfehlung ist — und nie eine sein wird", "datePublished": "2026-07-27", "description": "Ein Qualitäts-Score beschreibt ein Geschäft. Über den Preis sagt er nichts.", "inLanguage": "de", "author": {"@type": "Person", "name": "Tim Treis"}, "publisher": {"@type": "Organization", "name": "MoatLens"}, "mainEntityOfPage": "https://moatlens.app/p-score-ist-keine-empfehlung.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Warum unser Score keine Empfehlung ist — und nie eine sein wird", "datePublished": "2026-07-27", "description": "Ein Qualitäts-Score beschreibt ein Geschäft. Über den Preis sagt er nichts.", "inLanguage": "de", "author": {"@type": "Person", "name": "Tim Treis"}, "publisher": {"@type": "Organization", "name": "MoatLens"}, "mainEntityOfPage": "https://moatlens.app/p-score-ist-keine-empfehlung.html"}</script>
 </head>
 <body><header><div class="wrap nav">
 <a class="brand" href="/"><img class="crest" src="/crest.png" alt="MoatLens" width="28" height="28"><img class="wm" src="/wordmark.png" alt="MoatLens"></a>
@@ -243,10 +283,11 @@ footer a{color:var(--muted2)}
 <a href="/magazin.html" class="small back"
    onclick="if(document.referrer&amp;&amp;history.length>1){history.back();return false}">← Zurück</a>
 <span class="date" style="display:block;margin-top:18px">2026-07-27</span>
-<h1 style="margin-top:.3em">Warum unser Score keine Kaufempfehlung ist — und nie eine sein wird</h1></div></div>
+<h1 style="margin-top:.3em">Warum unser Score keine Empfehlung ist — und nie eine sein wird</h1></div></div>
 <section class="first"><div class="wrap narrow"><article class="post"><p>Die häufigste Frage, die uns erreicht, lautet sinngemäß: „Score 8,1 — soll ich kaufen?“ Die ehrliche Antwort ist: Das kann der Score gar nicht beantworten, und er soll es auch nicht.</p><p>Der MoatLens-Score misst acht Qualitätsfaktoren eines Unternehmens: wie profitabel es arbeitet, wie stabil die <a class="gloss" href="/l-nettomarge.html">Margen</a> sind, wie es mit <a class="gloss" href="/l-verschuldung.html">Schulden</a> umgeht, wie verlässlich Geld aus dem operativen Geschäft fließt. Er beschreibt also das Geschäft. Was er bewusst nicht kennt, ist der Preis, den die Börse gerade dafür verlangt — die KI in der App bekommt den Kurs nicht einmal zu sehen.</p><p>Diese Trennung ist Absicht, und sie hat zwei Gründe. Der erste ist rechtlich: Eine App, die Kauf- oder Verkaufsempfehlungen ausspricht, bewegt sich in einem völlig anderen regulatorischen Rahmen. Der zweite ist inhaltlich wichtiger: Qualität und Preis sind zwei getrennte Fragen, und wer sie vermischt, lernt nie, beide sauber zu beantworten.</p><p>Ein hervorragendes Unternehmen kann eine schlechte Anlage sein, wenn zu viel dafür bezahlt wird. Ein mittelmäßiges kann sich lohnen, wenn es verschenkt wird. Diese Abwägung ist der eigentliche Kern des Investierens — und sie gehört zu dir, nicht in eine Zahl.</p></article>
 <div style="margin-top:36px"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=journal" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Im Play Store ansehen</span></a></div></div></section><footer><div class="wrap">
 <img src="/wordmark.png" alt="MoatLens" style="width:190px;margin-bottom:22px;opacity:.9">
+<div class="flinks social"><a href="https://www.instagram.com/moatlens/" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="17.7" cy="6.3" r="1.5"/></svg>Instagram</a><a href="https://www.tiktok.com/@moatlens" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 2h-3.1v13.4a2.9 2.9 0 1 1-2.4-2.9V9.3a6 6 0 1 0 5.5 6V9.2A7 7 0 0 0 21 10.8V7.7a4.1 4.1 0 0 1-4.4-4.1V2Z"/></svg>TikTok (EN)</a><a href="https://www.tiktok.com/@moatlens_de" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 2h-3.1v13.4a2.9 2.9 0 1 1-2.4-2.9V9.3a6 6 0 1 0 5.5 6V9.2A7 7 0 0 0 21 10.8V7.7a4.1 4.1 0 0 1-4.4-4.1V2Z"/></svg>TikTok (DE)</a><a href="https://www.youtube.com/@moatlens" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.1 7.6a3 3 0 0 0-2.1-2.1C19.1 5 12 5 12 5s-7.1 0-9 .5A3 3 0 0 0 .9 7.6C.4 9.5.4 12 .4 12s0 2.5.5 4.4a3 3 0 0 0 2.1 2.1c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.4.5-4.4s0-2.5-.5-4.4Z"/><path d="M9.8 15.4V8.6l5.9 3.4-5.9 3.4Z" fill="#06090E"/></svg>YouTube</a></div>
 <div class="flinks">
 <a href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=footer" rel="noopener">Google Play</a>
 <a href="/warteliste.html">Warteliste</a>
