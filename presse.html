@@ -171,13 +171,21 @@ box-shadow:0 2px 14px rgba(212,175,55,.05)}
 .card p+p{margin-top:.8em}
 .ico{width:32px;height:32px;margin-bottom:14px;color:var(--gold)}
 /* Screenshot-Galerie */
-.rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory}
+.rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory;align-items:stretch}
 .rail::-webkit-scrollbar{height:6px}.rail::-webkit-scrollbar-thumb{background:var(--gold-border-mid);border-radius:99px}
-.rail figure{margin:0;flex:0 0 auto;scroll-snap-align:center}
-.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
-height:min(58vh,560px);width:auto;max-width:none}
-@media(max-width:560px){.rail img{height:auto;width:76vw}}
-.rail figcaption{font-size:.86rem;color:var(--muted2);margin-top:12px;text-align:center}
+/* Feste Spaltenbreite. Ohne sie bestimmt die laengste Bildunterschrift die Breite der
+   Kachel — und die Abstaende zwischen den Bildern fielen je Sprache anders aus. */
+.rail figure{--w:calc(min(58vh,560px) * .4927);margin:0;flex:0 0 var(--w);width:var(--w);
+scroll-snap-align:center;display:flex;flex-direction:column}
+.rail figure>a{display:block}
+.rail img{display:block;border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
+width:100%;height:auto;max-width:none}
+@media(max-width:560px){.rail figure{--w:76vw}}
+/* Die Unterschrift sitzt in einer Karte und bricht um. flex:1 laesst alle Karten
+   einer Reihe gleich hoch werden, egal wie lang der Text ist. */
+.rail figcaption{font-size:.86rem;line-height:1.45;color:var(--muted2);margin-top:12px;text-align:center;
+background:var(--card);border:1px solid var(--gold-border);border-radius:14px;padding:13px 15px;
+flex:1;display:flex;align-items:center;justify-content:center}
 .lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none;
 align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
 .lightbox:target{display:flex}
