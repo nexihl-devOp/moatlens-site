@@ -162,8 +162,8 @@ max-width:22em;text-align:left}}
 .pagehead{padding:64px 0 8px;background:radial-gradient(ellipse at 50% -20%,rgba(212,175,55,.10),transparent 60%)}
 section{padding:60px 0;border-top:1px solid var(--line)}
 section.first{border-top:0}
-.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}@media(max-width:640px){.g2{grid-template-columns:1fr}}
 @media(max-width:640px){.g3{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--r);padding:24px;
 box-shadow:0 2px 14px rgba(212,175,55,.05)}
@@ -222,6 +222,16 @@ a.gloss:hover{color:var(--gold-txt);border-bottom-color:var(--gold);text-decorat
 .date{color:var(--muted);font-size:.82rem;letter-spacing:.04em}
 article.post p{color:var(--muted2)}
 article.post p:first-of-type{color:var(--tx);font-size:1.08rem}
+article.post h2{font-size:1.42rem;margin:2.1em 0 .55em;line-height:1.3}
+article.post h2:first-child{margin-top:0}
+article.post ul.plist{list-style:none;padding:0;margin:1.1em 0}
+article.post ul.plist li{color:var(--muted2);position:relative;padding-left:26px;margin-bottom:11px}
+article.post ul.plist li::before{content:"";position:absolute;left:6px;top:.62em;width:6px;height:6px;
+border-radius:50%;background:var(--gold-border-mid)}
+article.post .pull{border-left:2px solid var(--gold-border-mid);padding:2px 0 2px 18px;margin:1.6em 0;
+color:var(--tx);font-size:1.06rem}
+article.post .faq{margin-top:14px}
+article.post .faq h3{font-size:1.05rem;margin:1.5em 0 .35em;color:var(--tx)}
 footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:.88rem}
 footer a{color:var(--muted2)}
 .flinks{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:22px}
@@ -250,7 +260,7 @@ footer a{color:var(--muted2)}
 </div></section>
 <section><div class="wrap"><h2>Bildschirmfotos</h2>
 <p class="muted">Echte Ansichten aus der App. Dargestellte Unternehmen sind Beispiele und keine Empfehlung.</p></div>
-<div class="rail"><figure><a href="/de02.jpg" download><img src="/de02.jpg" alt="Verstehe, was ein Unternehmen stark macht" loading="lazy" width="540" height="1096"></a><figcaption>Verstehe, was ein Unternehmen stark macht</figcaption></figure><figure><a href="/de03.jpg" download><img src="/de03.jpg" alt="Wohin fließt das Geld?" loading="lazy" width="540" height="1096"></a><figcaption>Wohin fließt das Geld?</figcaption></figure><figure><a href="/de04.jpg" download><img src="/de04.jpg" alt="Prüfe die Struktur deines Depots" loading="lazy" width="540" height="1096"></a><figcaption>Prüfe die Struktur deines Depots</figcaption></figure><figure><a href="/de06.jpg" download><img src="/de06.jpg" alt="Halte deine eigene These fest" loading="lazy" width="540" height="1096"></a><figcaption>Halte deine eigene These fest</figcaption></figure></div></section>
+<div class="rail"><figure><a href="/de07.jpg" download><img src="/de07.jpg" alt="Finde Unternehmen nach deinen Kriterien" loading="lazy" width="540" height="1096"></a><figcaption>Finde Unternehmen nach deinen Kriterien</figcaption></figure><figure><a href="/de01.jpg" download><img src="/de01.jpg" alt="Alle Werkzeuge an einem Ort" loading="lazy" width="540" height="1096"></a><figcaption>Alle Werkzeuge an einem Ort</figcaption></figure><figure><a href="/de04.jpg" download><img src="/de04.jpg" alt="Prüfe die Struktur deines Depots" loading="lazy" width="540" height="1096"></a><figcaption>Prüfe die Struktur deines Depots</figcaption></figure><figure><a href="/de09.jpg" download><img src="/de09.jpg" alt="Sektoren, Regionen und Größe auf einen Blick" loading="lazy" width="540" height="1096"></a><figcaption>Sektoren, Regionen und Größe auf einen Blick</figcaption></figure></div></section>
 <section><div class="wrap narrow">
 <h2>Die Haltung dahinter</h2><p class="muted">Der wichtigste Teil einer Analyse-App ist manchmal das, was sie weglässt. MoatLens gibt keine Kauf- oder Verkaufsempfehlungen — die KI in der App bekommt den Aktienkurs nicht einmal zu sehen, damit die Beurteilung des Geschäfts nicht vom Kurs eingefärbt wird. Qualität und Preis bleiben zwei getrennte Fragen. Das ist teils rechtlich begründet, vor allem aber inhaltlich: Wer beides vermischt, lernt nie, eine der beiden Fragen sauber zu beantworten.</p>
 <h2 style="margin-top:44px">Für Creator</h2><p class="muted">Du machst Inhalte zu Aktien, Fundamentalanalyse oder langfristigem Investieren und willst MoatLens ausprobieren? Schreib mir kurz — du bekommst einen Monat Vollzugang, ohne Bedingung und ohne Absprache. Das reicht, um alles in Ruhe durchzutesten; wenn du dranbleibst, verlängere ich gern. Kein Skript, keine Vorgaben, keine Erwartung an eine Erwähnung. Was mir am meisten hilft, ist ehrliches Rückmelden direkt an mich: Was war unklar, was hat gefehlt, an welcher Stelle hast du aufgehört? Ob und was du öffentlich machst, entscheidest allein du.</p>

@@ -162,8 +162,8 @@ max-width:22em;text-align:left}}
 .pagehead{padding:64px 0 8px;background:radial-gradient(ellipse at 50% -20%,rgba(212,175,55,.10),transparent 60%)}
 section{padding:60px 0;border-top:1px solid var(--line)}
 section.first{border-top:0}
-.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}@media(max-width:640px){.g2{grid-template-columns:1fr}}
 @media(max-width:640px){.g3{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--r);padding:24px;
 box-shadow:0 2px 14px rgba(212,175,55,.05)}
@@ -222,6 +222,16 @@ a.gloss:hover{color:var(--gold-txt);border-bottom-color:var(--gold);text-decorat
 .date{color:var(--muted);font-size:.82rem;letter-spacing:.04em}
 article.post p{color:var(--muted2)}
 article.post p:first-of-type{color:var(--tx);font-size:1.08rem}
+article.post h2{font-size:1.42rem;margin:2.1em 0 .55em;line-height:1.3}
+article.post h2:first-child{margin-top:0}
+article.post ul.plist{list-style:none;padding:0;margin:1.1em 0}
+article.post ul.plist li{color:var(--muted2);position:relative;padding-left:26px;margin-bottom:11px}
+article.post ul.plist li::before{content:"";position:absolute;left:6px;top:.62em;width:6px;height:6px;
+border-radius:50%;background:var(--gold-border-mid)}
+article.post .pull{border-left:2px solid var(--gold-border-mid);padding:2px 0 2px 18px;margin:1.6em 0;
+color:var(--tx);font-size:1.06rem}
+article.post .faq{margin-top:14px}
+article.post .faq h3{font-size:1.05rem;margin:1.5em 0 .35em;color:var(--tx)}
 footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:.88rem}
 footer a{color:var(--muted2)}
 .flinks{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:22px}
@@ -250,7 +260,7 @@ footer a{color:var(--muted2)}
 </div></section>
 <section><div class="wrap"><h2>Screenshots</h2>
 <p class="muted">Real views from the app. Companies shown are examples, not recommendations.</p></div>
-<div class="rail"><figure><a href="/en01.jpg" download><img src="/en01.jpg" alt="Check the structure of your portfolio" loading="lazy" width="540" height="1096"></a><figcaption>Check the structure of your portfolio</figcaption></figure><figure><a href="/en02.jpg" download><img src="/en02.jpg" alt="Sectors, regions and company size at a glance" loading="lazy" width="540" height="1096"></a><figcaption>Sectors, regions and company size at a glance</figcaption></figure><figure><a href="/en03.jpg" download><img src="/en03.jpg" alt="Write down your own investment thesis" loading="lazy" width="540" height="1096"></a><figcaption>Write down your own investment thesis</figcaption></figure></div></section>
+<div class="rail"><figure><a href="/en04.jpg" download><img src="/en04.jpg" alt="Every tool in one place" loading="lazy" width="540" height="1096"></a><figcaption>Every tool in one place</figcaption></figure><figure><a href="/en01.jpg" download><img src="/en01.jpg" alt="Check the structure of your portfolio" loading="lazy" width="540" height="1096"></a><figcaption>Check the structure of your portfolio</figcaption></figure><figure><a href="/en02.jpg" download><img src="/en02.jpg" alt="Sectors, regions and company size at a glance" loading="lazy" width="540" height="1096"></a><figcaption>Sectors, regions and company size at a glance</figcaption></figure><figure><a href="/en03.jpg" download><img src="/en03.jpg" alt="Write down your own investment thesis" loading="lazy" width="540" height="1096"></a><figcaption>Write down your own investment thesis</figcaption></figure></div></section>
 <section><div class="wrap narrow">
 <h2>The thinking behind it</h2><p class="muted">The most important part of an analysis app is sometimes what it leaves out. MoatLens gives no buy or sell recommendations — the AI in the app never even sees the share price, so its judgement of the business is not coloured by the quote. Quality and price stay two separate questions. That is partly a legal matter, but mostly a substantive one: mixing them means never learning to answer either one cleanly.</p>
 <h2 style="margin-top:44px">For creators</h2><p class="muted">You make content about stocks, fundamental analysis or long-term investing and want to try MoatLens? Drop me a line — you get one month of full access, no strings and no arrangement. That is enough to work through everything properly; if you stick with it, I am happy to extend. No script, no talking points, no expectation of a mention. What helps me most is honest feedback sent straight to me: what was unclear, what was missing, where did you stop? Whether and what you publish is entirely your call.</p>

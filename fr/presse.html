@@ -162,8 +162,8 @@ max-width:22em;text-align:left}}
 .pagehead{padding:64px 0 8px;background:radial-gradient(ellipse at 50% -20%,rgba(212,175,55,.10),transparent 60%)}
 section{padding:60px 0;border-top:1px solid var(--line)}
 section.first{border-top:0}
-.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}@media(max-width:640px){.g2{grid-template-columns:1fr}}
 @media(max-width:640px){.g3{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--r);padding:24px;
 box-shadow:0 2px 14px rgba(212,175,55,.05)}
@@ -222,6 +222,16 @@ a.gloss:hover{color:var(--gold-txt);border-bottom-color:var(--gold);text-decorat
 .date{color:var(--muted);font-size:.82rem;letter-spacing:.04em}
 article.post p{color:var(--muted2)}
 article.post p:first-of-type{color:var(--tx);font-size:1.08rem}
+article.post h2{font-size:1.42rem;margin:2.1em 0 .55em;line-height:1.3}
+article.post h2:first-child{margin-top:0}
+article.post ul.plist{list-style:none;padding:0;margin:1.1em 0}
+article.post ul.plist li{color:var(--muted2);position:relative;padding-left:26px;margin-bottom:11px}
+article.post ul.plist li::before{content:"";position:absolute;left:6px;top:.62em;width:6px;height:6px;
+border-radius:50%;background:var(--gold-border-mid)}
+article.post .pull{border-left:2px solid var(--gold-border-mid);padding:2px 0 2px 18px;margin:1.6em 0;
+color:var(--tx);font-size:1.06rem}
+article.post .faq{margin-top:14px}
+article.post .faq h3{font-size:1.05rem;margin:1.5em 0 .35em;color:var(--tx)}
 footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:.88rem}
 footer a{color:var(--muted2)}
 .flinks{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:22px}
@@ -250,7 +260,7 @@ footer a{color:var(--muted2)}
 </div></section>
 <section><div class="wrap"><h2>Captures d'écran</h2>
 <p class="muted">Vues réelles de l'application. Les sociétés présentées sont des exemples, pas des recommandations.</p></div>
-<div class="rail"><figure><a href="/fr01.jpg" download><img src="/fr01.jpg" alt="Votre liste de suivi, en un coup d'œil" loading="lazy" width="540" height="1096"></a><figcaption>Votre liste de suivi, en un coup d'œil</figcaption></figure><figure><a href="/fr02.jpg" download><img src="/fr02.jpg" alt="Analysez la structure de votre portefeuille" loading="lazy" width="540" height="1096"></a><figcaption>Analysez la structure de votre portefeuille</figcaption></figure><figure><a href="/fr03.jpg" download><img src="/fr03.jpg" alt="Secteurs, régions et taille des entreprises" loading="lazy" width="540" height="1096"></a><figcaption>Secteurs, régions et taille des entreprises</figcaption></figure><figure><a href="/fr04.jpg" download><img src="/fr04.jpg" alt="Calendrier des dividendes : dates ex et de paiement" loading="lazy" width="540" height="1096"></a><figcaption>Calendrier des dividendes : dates ex et de paiement</figcaption></figure></div></section>
+<div class="rail"><figure><a href="/fr05.jpg" download><img src="/fr05.jpg" alt="Trouvez des entreprises selon vos critères" loading="lazy" width="540" height="1096"></a><figcaption>Trouvez des entreprises selon vos critères</figcaption></figure><figure><a href="/fr01.jpg" download><img src="/fr01.jpg" alt="Tous les outils au même endroit" loading="lazy" width="540" height="1096"></a><figcaption>Tous les outils au même endroit</figcaption></figure><figure><a href="/fr02.jpg" download><img src="/fr02.jpg" alt="Analysez la structure de votre portefeuille" loading="lazy" width="540" height="1096"></a><figcaption>Analysez la structure de votre portefeuille</figcaption></figure><figure><a href="/fr03.jpg" download><img src="/fr03.jpg" alt="Secteurs, régions et taille des entreprises" loading="lazy" width="540" height="1096"></a><figcaption>Secteurs, régions et taille des entreprises</figcaption></figure></div></section>
 <section><div class="wrap narrow">
 <h2>L'idée derrière</h2><p class="muted">Le plus important dans une application d'analyse, c'est parfois ce qu'elle laisse de côté. MoatLens ne donne aucune recommandation d'achat ou de vente — l'IA de l'application ne voit même pas le cours, afin que son appréciation de l'entreprise n'en soit pas teintée. Qualité et prix restent deux questions distinctes. C'est en partie juridique, mais surtout une question de fond : les mélanger, c'est ne jamais apprendre à répondre correctement à l'une ou à l'autre.</p>
 <h2 style="margin-top:44px">Pour les créateurs</h2><p class="muted">Vous faites du contenu sur les actions, l'analyse fondamentale ou l'investissement de long terme et vous voulez essayer MoatLens ? Écrivez-moi — vous obtenez un mois d'accès complet, sans condition et sans accord préalable. De quoi tout parcourir tranquillement ; si vous continuez, je prolonge volontiers. Pas de script, pas de consignes, aucune attente de mention. Ce qui m'aide le plus, ce sont des retours honnêtes adressés directement à moi : qu'est-ce qui n'était pas clair, qu'est-ce qui manquait, à quel moment avez-vous arrêté ? Ce que vous publiez, et si vous publiez, ne dépend que de vous.</p>
