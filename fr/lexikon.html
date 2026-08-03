@@ -162,8 +162,8 @@ max-width:22em;text-align:left}}
 .pagehead{padding:64px 0 8px;background:radial-gradient(ellipse at 50% -20%,rgba(212,175,55,.10),transparent 60%)}
 section{padding:60px 0;border-top:1px solid var(--line)}
 section.first{border-top:0}
-.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}@media(max-width:640px){.g2{grid-template-columns:1fr}}
 @media(max-width:640px){.g3{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--r);padding:24px;
 box-shadow:0 2px 14px rgba(212,175,55,.05)}
@@ -171,18 +171,42 @@ box-shadow:0 2px 14px rgba(212,175,55,.05)}
 .card p+p{margin-top:.8em}
 .ico{width:32px;height:32px;margin-bottom:14px;color:var(--gold)}
 /* Screenshot-Galerie */
-.rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory}
+.rail{display:flex;gap:20px;overflow-x:auto;padding:8px 22px 24px;scroll-snap-type:x mandatory;align-items:stretch}
 .rail::-webkit-scrollbar{height:6px}.rail::-webkit-scrollbar-thumb{background:var(--gold-border-mid);border-radius:99px}
-.rail figure{margin:0;flex:0 0 auto;scroll-snap-align:center}
-.rail img{border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
-height:min(58vh,560px);width:auto;max-width:none}
-@media(max-width:560px){.rail img{height:auto;width:76vw}}
-.rail figcaption{font-size:.86rem;color:var(--muted2);margin-top:12px;text-align:center}
-.lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none;
-align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
-.lightbox:target{display:flex}
-.lightbox img{max-height:86vh;width:auto;border-radius:18px;border:1px solid var(--gold-border-mid)}
-.lightbox a.x{color:var(--gold-txt);font-size:.9rem}
+/* Feste Spaltenbreite. Ohne sie bestimmt die laengste Bildunterschrift die Breite der
+   Kachel — und die Abstaende zwischen den Bildern fielen je Sprache anders aus. */
+.rail figure{--w:calc(min(58vh,560px) * .4927);margin:0;flex:0 0 var(--w);width:var(--w);
+scroll-snap-align:center;display:flex;flex-direction:column}
+.rail figure>a{display:block}
+.rail img{display:block;border-radius:20px;border:1px solid var(--gold-border-mid);background:#000;
+width:100%;height:auto;max-width:none}
+@media(max-width:560px){.rail figure{--w:76vw}}
+/* Die Unterschrift sitzt in einer Karte und bricht um. flex:1 laesst alle Karten
+   einer Reihe gleich hoch werden, egal wie lang der Text ist. */
+.rail figcaption{font-size:.86rem;line-height:1.45;color:var(--muted2);margin-top:12px;text-align:center;
+background:var(--card);border:1px solid var(--gold-border);border-radius:14px;padding:13px 15px;
+flex:1;display:flex;align-items:center;justify-content:center}
+/* Vergroesserte Ansicht: Pfeile links/rechts, Wischen auf dem Telefon.
+   Ohne JavaScript bleiben die Pfeile normale Anker und funktionieren trotzdem. */
+.lightbox{position:fixed;inset:0;background:rgba(6,9,14,.94);z-index:80;display:none}
+.lightbox:target{display:grid;grid-template-columns:64px minmax(0,1fr) 64px;
+grid-template-rows:minmax(0,1fr) auto;align-items:center;justify-items:center;
+gap:12px;padding:22px;touch-action:pan-y}
+.lb-fig{grid-column:2;grid-row:1;margin:0;display:flex;flex-direction:column;
+align-items:center;gap:13px;max-height:100%}
+.lightbox img{max-height:76vh;max-width:100%;width:auto;border-radius:18px;
+border:1px solid var(--gold-border-mid)}
+.lb-fig figcaption{font-size:.9rem;color:var(--muted2);text-align:center;max-width:34em}
+.lb-count{color:var(--muted);margin-left:.5em;white-space:nowrap}
+.lb-nav{grid-row:1;display:flex;align-items:center;justify-content:center;
+width:52px;height:52px;border-radius:50%;border:1px solid var(--gold-border-mid);
+background:var(--card);color:var(--gold-txt);font-size:1.9rem;line-height:1;
+text-decoration:none;-webkit-user-select:none;user-select:none}
+.lb-nav:hover{border-color:var(--gold);color:var(--gold);text-decoration:none}
+.lb-prev{grid-column:1}.lb-next{grid-column:3}
+.lightbox a.x{grid-column:1/-1;grid-row:2;color:var(--gold-txt);font-size:.9rem}
+@media(max-width:640px){.lightbox:target{grid-template-columns:44px minmax(0,1fr) 44px;padding:12px}
+.lb-nav{width:40px;height:40px;font-size:1.5rem}.lightbox img{max-height:64vh}}
 ul.clean{list-style:none;padding:0;margin:0 0 1em}
 ul.clean li{padding:9px 0 9px 26px;position:relative;color:var(--muted2);border-bottom:1px solid var(--line);font-size:.96rem}
 ul.clean li:last-child{border-bottom:0}
@@ -222,9 +246,25 @@ a.gloss:hover{color:var(--gold-txt);border-bottom-color:var(--gold);text-decorat
 .date{color:var(--muted);font-size:.82rem;letter-spacing:.04em}
 article.post p{color:var(--muted2)}
 article.post p:first-of-type{color:var(--tx);font-size:1.08rem}
+article.post h2{font-size:1.42rem;margin:2.1em 0 .55em;line-height:1.3}
+article.post h2:first-child{margin-top:0}
+article.post ul.plist{list-style:none;padding:0;margin:1.1em 0}
+article.post ul.plist li{color:var(--muted2);position:relative;padding-left:26px;margin-bottom:11px}
+article.post ul.plist li::before{content:"";position:absolute;left:6px;top:.62em;width:6px;height:6px;
+border-radius:50%;background:var(--gold-border-mid)}
+article.post .pull{border-left:2px solid var(--gold-border-mid);padding:2px 0 2px 18px;margin:1.6em 0;
+color:var(--tx);font-size:1.06rem}
+article.post .faq{margin-top:14px}
+article.post .faq h3{font-size:1.05rem;margin:1.5em 0 .35em;color:var(--tx)}
 footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:.88rem}
 footer a{color:var(--muted2)}
 .flinks{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:22px}
+.flinks.social{gap:16px;margin-bottom:24px}
+.flinks.social a{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;
+border:1px solid var(--gold-border);border-radius:99px;background:var(--card);
+color:var(--muted2);font-size:.86rem}
+.flinks.social a:hover{border-color:var(--gold-border-mid);color:var(--gold-txt);text-decoration:none}
+.flinks.social svg{width:15px;height:15px;flex:0 0 auto}
 .disc{border:1px solid var(--gold-border);border-radius:16px;padding:17px 19px;background:var(--card);line-height:1.55}
 </style>
 
@@ -244,6 +284,7 @@ footer a{color:var(--muted2)}
 <section class="first"><div class="wrap"><div class="termlist"><a href="/fr/l-kgv.html"><strong>Ratio cours/bénéfice (PER)</strong><span>Imaginez que vous rachetez toute l'entreprise : le PER indique combien de bénéfices annuels vous payez pour le…</span></a><a href="/fr/l-kbv.html"><strong>Ratio cours/valeur comptable (P/B)</strong><span>Le P/B compare la valeur boursière aux capitaux propres du bilan – la « valeur comptable ». En gros : ce qui r…</span></a><a href="/fr/l-roe.html"><strong>Rentabilité des capitaux propres (ROE)</strong><span>Le ROE montre combien de bénéfice une entreprise tire de l'argent de ses propriétaires (les capitaux propres).…</span></a><a href="/fr/l-verschuldung.html"><strong>Endettement (Dette / EBITDA)</strong><span>Indique combien d'années de bénéfice opérationnel (EBITDA) seraient nécessaires pour rembourser la dette nette…</span></a><a href="/fr/l-nettomarge.html"><strong>Marge nette</strong><span>Sur chaque euro de chiffre d'affaires – combien reste-t-il finalement en véritable bénéfice ? 20 % signifie : …</span></a><a href="/fr/l-dividendenrendite.html"><strong>Rendement du dividende</strong><span>Indique la distribution annuelle par rapport au cours. 3 % signifie : 3 € de dividende pour 100 € de cours.…</span></a><a href="/fr/l-umsatzwachstum.html"><strong>Croissance du chiffre d'affaires</strong><span>Indique de combien le chiffre d'affaires a progressé par rapport à l'année précédente – le carburant des bénéf…</span></a><a href="/fr/l-gewinnwachstum.html"><strong>Croissance du bénéfice</strong><span>Indique la rapidité à laquelle croît le véritable bénéfice, pas seulement le chiffre d'affaires. Idéalement, i…</span></a><a href="/fr/l-freier-cashflow.html"><strong>Free cash-flow</strong><span>L'argent qui reste réellement, librement utilisable, après tous les coûts courants et les investissements. Sou…</span></a><a href="/fr/l-marktkapitalisierung.html"><strong>Capitalisation boursière</strong><span>La valeur boursière totale d'une entreprise : cours de l'action × nombre total d'actions. Elle répond à la que…</span></a><a href="/fr/l-bruttomarge.html"><strong>Marge brute</strong><span>Sur chaque euro de chiffre d'affaires — que reste-t-il une fois déduits les seuls coûts directs de fabrication…</span></a><a href="/fr/l-operative-marge.html"><strong>Marge opérationnelle</strong><span>Sur chaque euro de chiffre d'affaires — que reste-t-il comme bénéfice de l'activité elle-même, avant intérêts …</span></a><a href="/fr/l-ebitda.html"><strong>EBITDA</strong><span>Le bénéfice avant intérêts, impôts et amortissements. Conçu comme une approximation grossière de l'argent que …</span></a><a href="/fr/l-operativer-cashflow.html"><strong>Flux de trésorerie d'exploitation</strong><span>L'argent qui entre réellement en caisse grâce à l'activité courante — avant tout investissement. Non pas le bé…</span></a><a href="/fr/l-cash-conversion.html"><strong>Conversion en trésorerie</strong><span>La part du bénéfice comptable qui arrive vraiment sous forme d'argent librement disponible. 85 % signifie : su…</span></a><a href="/fr/l-owner-earnings.html"><strong>Bénéfice du propriétaire</strong><span>L'argent qu'un propriétaire de l'entreprise pourrait prélever chaque année sans l'affaiblir. Autrement dit le …</span></a><a href="/fr/l-investitionsausgaben.html"><strong>Dépenses d'investissement</strong><span>L'argent qu'une entreprise consacre aux usines, machines, logiciels ou bâtiments. Souvent abrégé en capex.…</span></a><a href="/fr/l-roic.html"><strong>Rentabilité du capital investi (ROIC)</strong><span>Le bénéfice qu'une entreprise tire de l'ensemble du capital engagé dans l'activité — fonds propres et dettes r…</span></a><a href="/fr/l-aktienrueckkauf.html"><strong>Rachat d'actions</strong><span>L'entreprise rachète ses propres actions sur le marché et les annule. Il reste moins de titres — votre part de…</span></a><a href="/fr/l-verwaesserung.html"><strong>Dilution</strong><span>L'entreprise émet de nouvelles actions, le plus souvent pour rémunérer ses salariés. Le nombre de titres augme…</span></a><a href="/fr/l-goodwill.html"><strong>Écart d'acquisition (goodwill)</strong><span>Ce qui a été payé lors d'un rachat au-delà de la valeur des biens tangibles — pour la marque, la clientèle, le…</span></a><a href="/fr/l-abschreibung.html"><strong>Amortissement</strong><span>Une machine coûte 10 millions aujourd'hui et dure dix ans. Plutôt que d'inscrire le coût en une fois, l'entrep…</span></a><a href="/fr/l-sondereffekte.html"><strong>Chiffres ajustés et éléments exceptionnels</strong><span>L'entreprise affiche deux bénéfices : celui calculé selon les règles — et un bénéfice « ajusté », dont les cha…</span></a><a href="/fr/l-burggraben.html"><strong>Avantage concurrentiel durable</strong><span>Un avantage pérenne qui rend difficile, pour les concurrents, de prendre à une entreprise ses clients et ses b…</span></a><a href="/fr/l-preissetzungsmacht.html"><strong>Pouvoir de fixation des prix</strong><span>La capacité d'augmenter les prix sans voir partir les clients. Sans doute la preuve la plus nette d'un avantag…</span></a><a href="/fr/l-wechselkosten.html"><strong>Coûts de changement</strong><span>L'effort qu'un client devrait consentir pour passer à la concurrence. Pas seulement de l'argent — aussi du tem…</span></a><a href="/fr/l-netzwerkeffekt.html"><strong>Effet de réseau</strong><span>Un service prend de la valeur pour chaque utilisateur à mesure que d'autres l'utilisent. Une place de marché a…</span></a><a href="/fr/l-wiederkehrende-umsaetze.html"><strong>Revenus récurrents</strong><span>Des revenus qui reviennent d'eux-mêmes — abonnements, contrats de maintenance, consommables. À l'opposé de la …</span></a><a href="/fr/l-organisches-wachstum.html"><strong>Croissance organique</strong><span>La croissance obtenue par ses propres forces — davantage de produits vendus, des prix plus élevés, de nouveaux…</span></a><a href="/fr/l-nettoverschuldung.html"><strong>Dette nette</strong><span>L'ensemble des dettes, diminué des liquidités que l'entreprise détient déjà. Si elle possède plus de liquidité…</span></a><a href="/fr/l-rueckstellungen.html"><strong>Provisions</strong><span>L'argent mis de côté pour des obligations certaines ou probables, dont le montant exact reste ouvert — retrait…</span></a><a href="/fr/l-working-capital.html"><strong>Besoin en fonds de roulement</strong><span>L'argent immobilisé dans l'activité quotidienne : dans les stocks et dans les factures que les clients n'ont p…</span></a><a href="/fr/l-zukaeufe.html"><strong>Acquisitions</strong><span>L'entreprise rachète une autre entreprise ou une branche d'activité – produits, clients et salariés d'un coup,…</span></a><a href="/fr/l-tilgung.html"><strong>Remboursement de dette</strong><span>Le remboursement de dette signifie : l'entreprise rembourse les dettes contractées – non pas les intérêts, qui…</span></a><a href="/fr/l-kapitalallokation.html"><strong>Allocation du capital</strong><span>L'allocation du capital signifie : que fait l'entreprise de l'argent gagné ? Investir intelligemment, réduire …</span></a><a href="/fr/l-geschaeftsmodell.html"><strong>Modèle d'affaires</strong><span>Cette évaluation regarde la robustesse du modèle d'affaires – à quel point l'activité est prévisible, simple e…</span></a><a href="/fr/l-management.html"><strong>Management</strong><span>Cette évaluation regarde à quel point la direction de l'entreprise est honnête et compétente – jugée à partir …</span></a><a href="/fr/l-strukturelle-risiken.html"><strong>Risques structurels</strong><span>On évalue ici les risques structurels qui vont au-delà des seuls chiffres et n'apparaissent que dans le rappor…</span></a><a href="/fr/l-bewertung.html"><strong>Valorisation</strong><span>La valorisation décrit à quel point une action est chère actuellement par rapport à ce que l'entreprise vaut r…</span></a><a href="/fr/l-kapitalrueckgabe.html"><strong>Retour au capital</strong><span>Le retour au capital indique combien d'argent une entreprise rend à ses actionnaires via les dividendes et les…</span></a></div>
 <div style="text-align:center;margin-top:40px"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=wissen" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Voir sur Google Play</span></a></div></div></section><footer><div class="wrap">
 <img src="/wordmark.png" alt="MoatLens" style="width:190px;margin-bottom:22px;opacity:.9">
+<div class="flinks social"><a href="https://www.instagram.com/moatlens/" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" stroke-width="2.1"/><circle cx="17.7" cy="6.3" r="1.5"/></svg>Instagram</a><a href="https://www.tiktok.com/@moatlens" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 2h-3.1v13.4a2.9 2.9 0 1 1-2.4-2.9V9.3a6 6 0 1 0 5.5 6V9.2A7 7 0 0 0 21 10.8V7.7a4.1 4.1 0 0 1-4.4-4.1V2Z"/></svg>TikTok (EN)</a><a href="https://www.tiktok.com/@moatlens_de" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 2h-3.1v13.4a2.9 2.9 0 1 1-2.4-2.9V9.3a6 6 0 1 0 5.5 6V9.2A7 7 0 0 0 21 10.8V7.7a4.1 4.1 0 0 1-4.4-4.1V2Z"/></svg>TikTok (DE)</a><a href="https://www.youtube.com/@moatlens" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.1 7.6a3 3 0 0 0-2.1-2.1C19.1 5 12 5 12 5s-7.1 0-9 .5A3 3 0 0 0 .9 7.6C.4 9.5.4 12 .4 12s0 2.5.5 4.4a3 3 0 0 0 2.1 2.1c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.4.5-4.4s0-2.5-.5-4.4Z"/><path d="M9.8 15.4V8.6l5.9 3.4-5.9 3.4Z" fill="#06090E"/></svg>YouTube</a></div>
 <div class="flinks">
 <a href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=footer" rel="noopener">Google Play</a>
 <a href="/fr/warteliste.html">Liste d'attente</a>
