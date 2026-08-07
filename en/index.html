@@ -144,6 +144,12 @@ list-style:none;padding:0;font-size:.9rem;color:var(--muted2)}
 .trust li::before{content:"✓";flex:0 0 auto;color:var(--gold);font-weight:700;font-size:.86rem;
 line-height:1;width:20px;height:20px;display:flex;align-items:center;justify-content:center;
 border-radius:50%;border:1px solid var(--gold-border-mid);background:var(--gold-bg)}
+/* Erklärte Vertrauenspunkte (Hero-Finalfassung 07.08.2026): vertikal, links,
+   fette Kernaussage + kurzer Zusatz — nutzt die bestehenden ✓-Kreise. */
+.trust-erklaert{flex-direction:column;align-items:flex-start;gap:12px;max-width:36em;text-align:left}
+.trust-erklaert li{align-items:flex-start;line-height:1.45}
+.trust-erklaert li::before{margin-top:2px}
+.trust-erklaert strong{font-weight:600}
 @media(max-width:560px){.trust{gap:8px 0;flex-direction:column;align-items:flex-start;
 max-width:22em;text-align:left}}
 /* Auf dem Handy wird der Hero kompakter, damit die Vertrauenszeile nicht unter
@@ -282,11 +288,11 @@ color:var(--muted2);font-size:.86rem}
 </div></header><div class="hero"><div class="wrap hero-in">
 <img class="wm" src="/wordmark.png" alt="MoatLens — Clarity. Quality. Compounding." width="420">
 <div><span class="kicker">Android · EU &amp; UK · free to start</span></div>
-<h1>Understand what you own.</h1>
-<p class="lead">Clear analysis of business quality, moats and fundamentals — no buy signals. For long-term and dividend investors. An app for <strong>stock analysis and fundamental analysis</strong>: ten years of numbers, every metric explained, annual reports summarised clearly.</p>
-<div class="cta-row"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=hero" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>View on Google Play</span></a><a class="btn btn-silver" href="/en/anleitung.html"><span>How to use</span></a></div>
-<ul class="trust"><li>No buy or sell signals</li><li>Ten years, not a snapshot</li><li>Made in Germany</li></ul>
-<p class="cta-note">Free to start · no brokerage connection needed · data licensed from Financial Modeling Prep</p>
+<h1>Before you buy a stock,<br>understand the business.</h1>
+<p class="lead">What is actually behind the price? MoatLens helps you get to know companies properly — how they earn their money, what sets them apart, and whether the business holds up long term. Ten years of figures, metrics explained in plain words, annual reports made readable — an app for <strong>stock analysis and fundamental analysis</strong>, no jargon and no buy signals.</p>
+<div class="cta-row"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=hero" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Start for free</span></a><a class="btn btn-silver" href="/en/anleitung.html"><span>View the guide</span></a></div>
+<ul class="trust trust-erklaert"><li><span><strong>Ten years, not just today's price.</strong> See how a business has actually developed.</span></li><li><span><strong>What makes this company special?</strong> Business model, moat and the factors that carry it.</span></li><li><span><strong>Numbers you finally understand.</strong> Metrics are explained, not just displayed.</span></li><li><span><strong>No hype, no buy signals.</strong> What you do with it is your decision.</span></li></ul>
+<p class="cta-note">No investment advice · no brokerage connection needed · made in Germany · data licensed from Financial Modeling Prep</p>
 </div></div><section class="first"><div class="wrap">
 <span class="label">What you get out of it</span><h2 style="margin-top:.4em">Understand the business first. Then everything else.</h2>
 <p class="muted" style="max-width:44em">A good company is not automatically a good stock. MoatLens flips the usual order.</p>
