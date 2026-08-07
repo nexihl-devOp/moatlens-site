@@ -144,6 +144,12 @@ list-style:none;padding:0;font-size:.9rem;color:var(--muted2)}
 .trust li::before{content:"✓";flex:0 0 auto;color:var(--gold);font-weight:700;font-size:.86rem;
 line-height:1;width:20px;height:20px;display:flex;align-items:center;justify-content:center;
 border-radius:50%;border:1px solid var(--gold-border-mid);background:var(--gold-bg)}
+/* Erklärte Vertrauenspunkte (Hero-Finalfassung 07.08.2026): vertikal, links,
+   fette Kernaussage + kurzer Zusatz — nutzt die bestehenden ✓-Kreise. */
+.trust-erklaert{flex-direction:column;align-items:flex-start;gap:12px;max-width:36em;text-align:left}
+.trust-erklaert li{align-items:flex-start;line-height:1.45}
+.trust-erklaert li::before{margin-top:2px}
+.trust-erklaert strong{font-weight:600}
 @media(max-width:560px){.trust{gap:8px 0;flex-direction:column;align-items:flex-start;
 max-width:22em;text-align:left}}
 /* Auf dem Handy wird der Hero kompakter, damit die Vertrauenszeile nicht unter
@@ -282,11 +288,11 @@ color:var(--muted2);font-size:.86rem}
 </div></header><div class="hero"><div class="wrap hero-in">
 <img class="wm" src="/wordmark.png" alt="MoatLens — Clarity. Quality. Compounding." width="420">
 <div><span class="kicker">Android · EU &amp; UK · kostenlos startbar</span></div>
-<h1>Verstehe, was du kaufst.</h1>
-<p class="lead">Klartext über Geschäftsmodelle, Burggräben und Qualität — statt Kaufsignale. Für langfristige Anleger und Dividendensammler. Eine App für <strong>Aktienanalyse und Fundamentalanalyse</strong>: zehn Jahre Zahlen, jede Kennzahl erklärt, Geschäftsberichte verständlich zusammengefasst.</p>
-<div class="cta-row"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=hero" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Im Play Store ansehen</span></a><a class="btn btn-silver" href="/anleitung.html"><span>Anleitung</span></a></div>
-<ul class="trust"><li>Keine Kauf- oder Verkaufssignale</li><li>Zehn Jahre statt Momentaufnahme</li><li>Entwickelt in Deutschland</li></ul>
-<p class="cta-note">Kostenloser Einstieg · keine Depotverbindung nötig · Daten lizenziert von Financial Modeling Prep</p>
+<h1>Bevor du eine Aktie kaufst,<br>verstehe das Unternehmen.</h1>
+<p class="lead">Was steckt eigentlich hinter dem Kurs? MoatLens hilft dir, Unternehmen wirklich kennenzulernen — wie sie ihr Geld verdienen, was sie von anderen unterscheidet und ob ihr Geschäft auch langfristig trägt. Zehn Jahre Zahlen, verständlich erklärte Kennzahlen, aufbereitete Geschäftsberichte — eine App für <strong>Aktienanalyse und Fundamentalanalyse</strong>, ohne Fachchinesisch und ohne Kaufsignale.</p>
+<div class="cta-row"><a class="btn" href="https://play.google.com/store/apps/details?id=com.nexihl.moatlens&utm_source=moatlens_app&utm_medium=website&utm_campaign=hero" rel="noopener"><span><svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3 1.5v23c0 .6.6 1 1.1.6l13.4-11a.8.8 0 0 0 0-1.2L4.1.9C3.6.5 3 .9 3 1.5Z"/></svg>Kostenlos starten</span></a><a class="btn btn-silver" href="/anleitung.html"><span>Anleitung ansehen</span></a></div>
+<ul class="trust trust-erklaert"><li><span><strong>10 Jahre statt nur der aktuelle Kurs.</strong> Schau dir an, wie sich ein Unternehmen wirklich entwickelt hat.</span></li><li><span><strong>Was macht dieses Unternehmen besonders?</strong> Geschäftsmodell, Burggraben und die Faktoren, die es tragen.</span></li><li><span><strong>Zahlen, die man endlich versteht.</strong> Kennzahlen werden erklärt, nicht nur angezeigt.</span></li><li><span><strong>Keine Hypes, keine Kaufsignale.</strong> Was du daraus machst, entscheidest du selbst.</span></li></ul>
+<p class="cta-note">Keine Anlageberatung · keine Depotverbindung nötig · Entwickelt in Deutschland · Daten lizenziert von Financial Modeling Prep</p>
 </div></div><section class="first"><div class="wrap">
 <span class="label">Was du davon hast</span><h2 style="margin-top:.4em">Erst das Geschäft verstehen. Dann alles andere.</h2>
 <p class="muted" style="max-width:44em">Ein gutes Unternehmen ist nicht automatisch eine gute Aktie. MoatLens dreht die übliche Reihenfolge um.</p>
